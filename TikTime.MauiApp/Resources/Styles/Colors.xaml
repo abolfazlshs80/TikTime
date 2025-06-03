@@ -28,6 +28,19 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+
+    <!--#region Custom Color -->
+    <Color x:Key="BackgroundLogin">Black</Color>
+    <Color x:Key="HeaderTextColor">#FF00FF</Color>
+    <Color x:Key="TextLightColor">White</Color>
+    <Color x:Key="TextDarkColor">Black</Color>
+    <Color x:Key="PanelBackgroundLightColor">#E0E0E0</Color>
+    <Color x:Key="PanelBackgroundDarkColor">#222222</Color>
+
+    <!--#endregion-->
+
+
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
