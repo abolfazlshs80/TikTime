@@ -4,9 +4,9 @@ namespace TikTime.MauiApp
 {
     public static class MauiProgram
     {
-        public static MauiApp CreateMauiApp()
+        public static Microsoft.Maui.Hosting.MauiApp CreateMauiApp()
         {
-            var builder = MauiApp.CreateBuilder();
+            var builder = Microsoft.Maui.Hosting.MauiApp.CreateBuilder(); // Use the correct namespace for CreateBuilder  
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -18,7 +18,7 @@ namespace TikTime.MauiApp
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+                            
             return builder.Build();
         }
     }
