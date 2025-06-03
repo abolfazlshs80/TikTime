@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TikTime.MauiApp.MVVM.View.Account.LoginNumberPage"
+             Title="LoginNumberPage"
+             BackgroundColor="{StaticResource BackgroundLogin}"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <!-- Background Pattern -->
+        <Image Source="background_circles.png" 
+               Aspect="AspectFill" 
+               Opacity="0.7"/>
+
+        <VerticalStackLayout Spacing="20" 
+                             Padding="20"
+                             VerticalOptions="Center">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="5" 
+                                 HorizontalOptions="Center"
+                                 Margin="0,0,0,30">
+                <Label Text="WELCOME TO" 
+                       TextColor="{StaticResource TextLightColor}"
+                       FontSize="20"
+                       HorizontalOptions="Center"/>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <Image Source="check_circle.png" 
+                           HeightRequest="24" 
+                           WidthRequest="24"
+                           VerticalOptions="Center"/>
+                    <Label Text="TIK TIME" 
+                           TextColor="{StaticResource HeaderTextColor}" 
+                           FontSize="24" 
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- Login Form -->
+            <Frame BackgroundColor="{StaticResource PanelBackgroundLightColor}" 
+                   CornerRadius="20" 
+                   HasShadow="False"
+                   Padding="15">
+                <VerticalStackLayout Spacing="15">
+                    <!-- Phone Number Input -->
+                    <Border StrokeShape="RoundRectangle 10,10,10,10"
+                            StrokeThickness="0"
+                            BackgroundColor="White"
+                            Padding="15,0">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Entry Grid.Column="0"
+                                   Placeholder="شماره موبایل"
+                                   PlaceholderColor="#AAAAAA"
+                                   TextColor="Black"
+                                   x:Name="NumberTextBox"
+                                   HorizontalTextAlignment="End"
+                                   FlowDirection="RightToLeft"/>
+                            <Label Grid.Column="1"
+                                   Text="*"
+                                   TextColor="{StaticResource HeaderTextColor}" 
+                                   FontSize="20"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Login Button -->
+                    <Button Text="ورود"
+                         Style="{StaticResource ButtonLoginStyle}"
+                            x:Name="LoginButton"
+                            Clicked="LoginButton_OnClicked"
+                           />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Support Options -->
+            <Frame BackgroundColor="{StaticResource PanelBackgroundDarkColor}"
+                   CornerRadius="20"
+                   HasShadow="False"
+                   Padding="15"
+                   Margin="0,20,0,0">
+                <Grid ColumnDefinitions="*,1,*">
+                    <!-- Telegram Support -->
+                    <VerticalStackLayout Grid.Column="0"
+                                         HorizontalOptions="Center"
+                                         Spacing="5">
+                        <Image Source="telegram_icon.png"
+                               HeightRequest="30"
+                               WidthRequest="30"
+                               HorizontalOptions="Center"/>
+                        <VerticalStackLayout Spacing="0" HorizontalOptions="Center">
+                            <Label Text="پشتیبانی"
+                                   TextColor="{StaticResource TextLightColor}"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   FlowDirection="RightToLeft"/>
+                            <Label Text="تلگرام"
+                                   TextColor="{StaticResource TextLightColor}"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   FlowDirection="RightToLeft"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
+                    <!-- Divider -->
+                    <BoxView Grid.Column="1"
+                             Color="#444444"
+                             WidthRequest="1"
+                             VerticalOptions="Fill"
+                             Margin="0,10"/>
+
+                    <!-- WhatsApp Support -->
+                    <VerticalStackLayout Grid.Column="2"
+                                         HorizontalOptions="Center"
+                                         Spacing="5">
+                        <Image Source="whatsapp_icon.png"
+                               HeightRequest="30"
+                               WidthRequest="30"
+                               HorizontalOptions="Center"/>
+                        <VerticalStackLayout Spacing="0" HorizontalOptions="Center">
+                            <Label Text="پشتیبانی"
+                                   TextColor="{StaticResource TextLightColor}"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   FlowDirection="RightToLeft"/>
+                            <Label Text="واتساپ"
+                                   TextColor="{StaticResource TextLightColor}"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   FlowDirection="RightToLeft"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Copyright -->
+            <Label Text="All Rights Reserved By TikTime"
+                   TextColor="{StaticResource TextLightColor}"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,0"/>
+            <Label Text="© 2025"
+                   TextColor="{StaticResource TextLightColor}"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   Margin="-5,0,0,0"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
