@@ -60,12 +60,11 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+		<PackageReference Include="Mopups" Version="1.3.4" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="MVVM\Model\Account\" />
 	  <Folder Include="MVVM\ViewModel\Account\" />
-	  <Folder Include="Pages\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -73,6 +72,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\View\Account\LoginPasswordPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Main\AddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Main\SettingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\CustomControlStyle.xaml">
