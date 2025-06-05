@@ -5,12 +5,46 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TikTime.MauiApp"
     xmlns:account="clr-namespace:TikTime.MauiApp.MVVM.View.Account"
+    xmlns:main="clr-namespace:TikTime.MauiApp.MVVM.View.Main"
     Shell.FlyoutBehavior="Disabled"
     Title="TikTime.MauiApp">
+    <!--<TabBar>
+        <ShellContent Title="خانه" Icon="home.png" ContentTemplate="{DataTemplate main:MainPage}" />
+        <ShellContent Title="جستجو" Icon="search.png" ContentTemplate="{DataTemplate main:MainPage}" />
+        <ShellContent Title="افزودن" Icon="add.png" ContentTemplate="{DataTemplate main:MainPage}" />
+        <ShellContent Title="لیست" Icon="list.png" ContentTemplate="{DataTemplate main:MainPage}" />
+        <ShellContent Title="تنظیمات" Icon="settings.png" ContentTemplate="{DataTemplate main:SettingPage}" />
+    </TabBar>-->
 
+    <TabBar>
+        <Tab Title="Home" Icon="icons8_home_tab.svg">
+            <ShellContent ContentTemplate="{DataTemplate main:MainPage}" />
+        </Tab>
+
+
+        <Tab Title="add" Icon="icons8_add_tab">
+            <ShellContent ContentTemplate="{DataTemplate main:AddPage}" />
+        </Tab>
+
+        <Tab Title="Setting" Icon="icons8_settings_tab.svg">
+            <ShellContent ContentTemplate="{DataTemplate main:SettingPage}" />
+        </Tab>
+
+     
+
+    </TabBar>
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate account:LoginPasswordPage}"
-        Route="MainPage" />
+        Title="LoginNumberPage"
+        ContentTemplate="{DataTemplate account:LoginNumberPage}"
+        Route="LoginNumberPage" />
 
+    <ShellContent 
+        Title="LoginPasswordPage"
+        Route="LoginPasswordPage"
+        ContentTemplate="{DataTemplate account:LoginPasswordPage}" />
+
+    <ShellContent 
+        Title="MainPage"
+        Route="MainPage"
+        ContentTemplate="{DataTemplate main:MainPage}" />
 </Shell>
