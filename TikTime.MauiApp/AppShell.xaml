@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:TikTime.MauiApp"
     xmlns:account="clr-namespace:TikTime.MauiApp.MVVM.View.Account"
     xmlns:main="clr-namespace:TikTime.MauiApp.MVVM.View.Main"
+    xmlns:customer="clr-namespace:TikTime.MauiApp.MVVM.View.Customer"
     Shell.FlyoutBehavior="Disabled"
     Title="TikTime.MauiApp">
     <!--<TabBar>
@@ -47,4 +48,13 @@
         Title="MainPage"
         Route="MainPage"
         ContentTemplate="{DataTemplate main:MainPage}" />
+
+
+    <ShellContent 
+        Title="AddCustomerPage"
+        Route="AddCustomerPage"
+        ContentTemplate="{DataTemplate customer:AddCustomerPage}" />
+
+
+
 </Shell>
