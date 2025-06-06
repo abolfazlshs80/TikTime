@@ -12,7 +12,8 @@ namespace TikTime.MauiApp
 
             builder.Services
 
-                .ConfigureServices();
+                .ConfigureServices()
+                .ConfigurePage();
 
             builder
                 .UseMauiApp<App>()
