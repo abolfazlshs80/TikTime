@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TikTime.MauiApp.MVVM.View.Customer.AddCustomerPage"
+             Title="AddCustomerPage"
+             BackgroundColor="#E8E8E8"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Spacing="15" 
+                         Padding="20"
+                         VerticalOptions="Start">
+
+        <!-- Add Note Button -->
+        <Frame BackgroundColor="#D0D0D0"
+               CornerRadius="15"
+               HasShadow="False"
+               Padding="20"
+               HeightRequest="70">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- Icon -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="Black"
+                       CornerRadius="20"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Padding="0"
+                       HasShadow="False"
+                       VerticalOptions="Center">
+                    <Label Text="+"
+                           TextColor="White"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Frame>
+
+                <!-- Text -->
+                <Button Grid.Column="1"
+                       Text="افزودن نکی"
+                       TextColor="Black"
+                       BackgroundColor="Transparent"
+                       Clicked="OnAddNoteClicked"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </Grid>
+        </Frame>
+
+        <!-- Excel File Button -->
+        <Frame BackgroundColor="#D0D0D0"
+               CornerRadius="15"
+               HasShadow="False"
+               Padding="20"
+               HeightRequest="70">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- Icon -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="Black"
+                       CornerRadius="20"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Padding="0"
+                       HasShadow="False"
+                       VerticalOptions="Center">
+                    <Label Text="📱"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Frame>
+
+                <!-- Text -->
+                <Label Grid.Column="1"
+                       Text="فایل اکسل"
+                       TextColor="Black"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </Grid>
+        </Frame>
+
+        <!-- Group Contacts Button -->
+        <Frame BackgroundColor="#D0D0D0"
+               CornerRadius="15"
+               HasShadow="False"
+               Padding="20"
+               HeightRequest="70">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- Icon -->
+                <Frame Grid.Column="0"
+                    
+                       CornerRadius="20"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Padding="0"
+                       HasShadow="False"
+                       VerticalOptions="Center">
+                    <Label Text="📄"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                     
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Frame>
+
+                <!-- Text -->
+                <Label Grid.Column="1"
+                       Text="مخاطبین گروهی"
+                       
+                       TextColor="Black"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
