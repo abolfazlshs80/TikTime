@@ -20,6 +20,8 @@
                          CornerRadius="5" />
 
                 <Button Text="ثبت مشتری" 
+                        x:Name="AddCustomerButton"
+                        Clicked="AddCustomerButton_OnClicked"
                         HorizontalOptions="Fill"
                         ImageSource="person_icon.png"
                         ContentLayout="Left,10"

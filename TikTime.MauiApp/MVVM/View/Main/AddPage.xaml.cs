@@ -14,4 +14,9 @@ public partial class AddPage : Mopups.Pages.PopupPage
     {
         await MopupService.Instance.PopAsync();
     }
+
+    private async void AddCustomerButton_OnClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"//AddCustomerPage");
+    }
 }
