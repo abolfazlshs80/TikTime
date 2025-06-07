@@ -29,8 +29,8 @@ namespace TikTime.MauiApp.Service
 
         public List<Customer> Customers = new List<Customer>()
         {
-            new Customer(){Id = 1,Name = "abolfazl",Phone = "09389114506"},
-            new Customer(){Id = 1,Name = "mohsen",Phone = "09389114206"}
+            new Customer(){Id = 1,Name = "abolfazl",Phone = "09389114506",Date = DateOnly.FromDateTime(DateTime.Now)},
+            new Customer(){Id = 1,Name = "mohsen",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now)}
         };
     }
 }
