@@ -21,11 +21,21 @@ namespace TikTime.MauiApp.Service
 
         public async Task<bool> Add(Customer model)
         {
+            model.Date = DateOnly.FromDateTime(DateTime.Now);
             var findUser = FakeDataService.Instance.Customers
                 .Any(u => u.Phone == model.Phone);
             if (!findUser)
                 FakeDataService.Instance.Customers.Add(model);
 
+            return true;
+        }
+
+        public async Task<bool> Remove(int Id)
+        {
+            var FindCustomer = FakeDataService.Instance.Customers
+                .FirstOrDefault(u => u.Id.Equals(Id));
+            if (FindCustomer is not null)
+                FakeDataService.Instance.Customers.Remove(FindCustomer);
             return true;
         }
 
@@ -38,6 +48,7 @@ namespace TikTime.MauiApp.Service
     public interface ICustomerService
     {
         Task<bool> Add(Customer model);
+        Task<bool> Remove(int Id);
         Task<IEnumerable<Customer>> GetAll();
 
     }
