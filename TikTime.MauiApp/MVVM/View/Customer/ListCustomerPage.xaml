@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TikTime.MauiApp.MVVM.View.Customer.ListCustomerPage"
+             BackgroundColor="#E8E8E8"
+             >
+
+    <VerticalStackLayout Spacing="15" Padding="15">
+
+        <!-- Top Action Buttons -->
+        <Grid  ColumnSpacing="10">
+
+
+
+            <!-- Add Button -->
+            <Frame Grid.Column="0"
+                   BackgroundColor="#D0D0D0"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label Text="+"
+                           TextColor="Black"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="افزودن"
+                           TextColor="Black"
+                           FontSize="12"
+                           HorizontalOptions="Center"
+                           FlowDirection="RightToLeft">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddCuctomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+        <CollectionView ItemsSource="{Binding Customers}" x:Name="MyCollectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+
+                        <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="False"
+                       Padding="20">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+
+                                <HorizontalStackLayout Grid.Column="0">
+                                    <Button Grid.Column="0"
+                                    Text="-"
+                                    FontSize="25"
+                                     HeightRequest="24"
+                                     WidthRequest="24"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BindingContext.DeleteCustomerCommand, Source={x:Reference MyCollectionView}}"
+                                     CommandParameter="{Binding .}"
+                                     VerticalOptions="Center"
+                                     />
+                                    <Button Grid.Column="1"
+                                        Text="go"
+                                        FontSize="25"
+                                        HeightRequest="24"
+                                        WidthRequest="24"
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding BindingContext.EditProfileCustomer, Source={x:Reference MyCollectionView}}"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center"
+                                                                 />
+                                </HorizontalStackLayout>
+                                <!-- دکمه حذف -->
+
+
+                                <!-- فاصله یا جداساز -->
+                                <!--<Label TextColor="Red" Text="-" Grid.Column="1" />-->
+
+                                <!-- اطلاعات مشتری -->
+                                <VerticalStackLayout Grid.Column="2"
+                                             HorizontalOptions="End"
+                                             Spacing="2">
+                                    <Label Text="{Binding Name}"
+                                   TextColor="Black"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="End"
+                                   FlowDirection="RightToLeft"/>
+                                    <Label Text="{Binding Date}"
+                                   TextColor="#666666"
+                                   FontSize="12"
+                                   HorizontalOptions="End"
+                                   FlowDirection="RightToLeft"/>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
