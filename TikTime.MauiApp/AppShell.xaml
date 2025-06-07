@@ -55,6 +55,9 @@
         Route="AddCustomerPage"
         ContentTemplate="{DataTemplate customer:AddCustomerPage}" />
 
-
+    <ShellContent 
+        Title="ListCustomerPage"
+        Route="ListCustomerPage"
+        ContentTemplate="{DataTemplate customer:ListCustomerPage}" />
 
 </Shell>
