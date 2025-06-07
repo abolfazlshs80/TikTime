@@ -11,5 +11,6 @@ namespace TikTime.MauiApp.MVVM.Model.Customer
         public int Id { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
+        public DateOnly Date { get; set; }
     }
 }
