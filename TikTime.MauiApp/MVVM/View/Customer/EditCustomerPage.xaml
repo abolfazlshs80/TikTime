@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TikTime.MauiApp.MVVM.View.Customer.EditCustomerPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header Section -->
+        <StackLayout Grid.Row="0" BackgroundColor="White" Padding="20">
+
+            <!-- Profile Header -->
+            <Grid ColumnDefinitions="Auto,*,Auto" Margin="0,10,0,20">
+
+                <!-- Back Button -->
+
+
+                <Button Text="نوبت" Grid.Column="0"
+             
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+          
+
+                <!-- Profile Info -->
+                <StackLayout Grid.Column="1" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Spacing="5">
+                    <Label Text="علی"
+                           TextColor="Black"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalOptions="End"
+                           FlowDirection="RightToLeft"/>
+                    <Label Text="تا کنون هیچ پیامکی ارسال نشده است"
+                           TextColor="#666666"
+                           FontSize="12"
+                           HorizontalOptions="End"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+
+                <!-- Profile Avatar -->
+                <Frame Grid.Column="2"
+                       BackgroundColor="#E0E0E0"
+                       CornerRadius="30"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Padding="0"
+                       HasShadow="False">
+                    <Image Source="default_avatar.png"
+                           Aspect="AspectFill"/>
+                </Frame>
+            </Grid>
+
+            <!-- Statistics -->
+            <Grid ColumnDefinitions="Auto,Auto,Auto" 
+                  HorizontalOptions="End"
+                  ColumnSpacing="20">
+
+                <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label Text="0"
+                           TextColor="#FF1493"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="نومن (بیوگرافیها)"
+                           TextColor="#666666"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label Text="1"
+                           TextColor="#FF1493"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="کنسل"
+                           TextColor="#666666"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Label Text="0"
+                           TextColor="#0066FF"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="موثر"
+                           TextColor="#666666"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+            </Grid>
+
+            <!-- Separator Line -->
+            <BoxView HeightRequest="1" 
+                     BackgroundColor="#E0E0E0" 
+                     Margin="0,20,0,0"/>
+        </StackLayout>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F8F8F8">
+            <StackLayout Padding="0" Spacing="0">
+
+                <!-- Action Buttons -->
+                <Grid ColumnDefinitions="Auto,*" 
+                      BackgroundColor="#F0F0F0"
+                      Padding="20,10">
+
+                    <Image Grid.Column="0"
+                           Source="edit_icon.png"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           VerticalOptions="Center"/>
+
+                    <Label Grid.Column="1"
+                           Text="ثبت‌ها"
+                           TextColor="#666666"
+                           FontSize="12"
+                           VerticalOptions="Center"
+                           Margin="10,0,0,0"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+
+                <!-- Table Header -->
+                <Grid ColumnDefinitions="*,*" 
+                      BackgroundColor="#E8E8E8"
+                      HeightRequest="40">
+
+                    <Label Grid.Column="0"
+                           Text="بدون گروه"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+
+                    <BoxView Grid.Column="0"
+                             WidthRequest="1"
+                             BackgroundColor="#CCCCCC"
+                             HorizontalOptions="End"
+                             VerticalOptions="Fill"/>
+
+                    <Label Grid.Column="1"
+                           Text="گروه"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+
+                <!-- Table Rows -->
+                <!-- Birth Row -->
+                <Grid ColumnDefinitions="*,*" 
+                      BackgroundColor="White"
+                      HeightRequest="50">
+
+                    <Frame Grid.Column="0"
+                           BackgroundColor="#FF1493"
+                           CornerRadius="15"
+                           HeightRequest="25"
+                           Padding="10,5"
+                           HasShadow="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label Text="ثبت نشده"
+                               TextColor="White"
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Frame>
+
+                    <BoxView Grid.Column="0"
+                             WidthRequest="1"
+                             BackgroundColor="#CCCCCC"
+                             HorizontalOptions="End"
+                             VerticalOptions="Fill"/>
+
+                    <Label Grid.Column="1"
+                           Text="تولد"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+
+                    <BoxView Grid.ColumnSpan="2"
+                             HeightRequest="1"
+                             BackgroundColor="#E0E0E0"
+                             VerticalOptions="End"/>
+                </Grid>
+
+                <!-- Job Row -->
+                <Grid ColumnDefinitions="*,*" 
+                      BackgroundColor="White"
+                      HeightRequest="50">
+
+                    <Frame Grid.Column="0"
+                           BackgroundColor="#FF1493"
+                           CornerRadius="15"
+                           HeightRequest="25"
+                           Padding="10,5"
+                           HasShadow="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label Text="ثبت نشده"
+                               TextColor="White"
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Frame>
+
+                    <BoxView Grid.Column="0"
+                             WidthRequest="1"
+                             BackgroundColor="#CCCCCC"
+                             HorizontalOptions="End"
+                             VerticalOptions="Fill"/>
+
+                    <Label Grid.Column="1"
+                           Text="شغل"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+
+                    <BoxView Grid.ColumnSpan="2"
+                             HeightRequest="1"
+                             BackgroundColor="#E0E0E0"
+                             VerticalOptions="End"/>
+                </Grid>
+
+                <!-- How We Met Row -->
+                <Grid ColumnDefinitions="*,*" 
+                      BackgroundColor="White"
+                      HeightRequest="50">
+
+                    <Frame Grid.Column="0"
+                           BackgroundColor="#FF1493"
+                           CornerRadius="15"
+                           HeightRequest="25"
+                           Padding="10,5"
+                           HasShadow="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <Label Text="ثبت نشده"
+                               TextColor="White"
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Frame>
+
+                    <BoxView Grid.Column="0"
+                             WidthRequest="1"
+                             BackgroundColor="#CCCCCC"
+                             HorizontalOptions="End"
+                             VerticalOptions="Fill"/>
+
+                    <Label Grid.Column="1"
+                           Text="نحوه آشنایی"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+
+                <!-- Link Descriptions Section -->
+                <StackLayout BackgroundColor="White" Padding="20" Spacing="15">
+                    <Label Text="توضیحات پیوندها"
+                           TextColor="Black"
+                           FontSize="16"
+                           HorizontalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+
+                <!-- Descriptions Section -->
+                <StackLayout BackgroundColor="#F8F8F8" Padding="20" Spacing="10">
+                    <Label Text="توضیحات"
+                           TextColor="#666666"
+                           FontSize="14"
+                           HorizontalOptions="End"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <Grid Grid.Row="2" 
+              BackgroundColor="Black" 
+              HeightRequest="60"
+              ColumnDefinitions="*,*,*,*">
+
+            <!-- Contact Icon -->
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="contact_icon.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       />
+                <Label Text="تماس"
+                       TextColor="White"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </VerticalStackLayout>
+
+            <!-- Add Icon -->
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="add_icon.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       />
+                <Label Text="ویرایش"
+                       TextColor="#666666"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </VerticalStackLayout>
+
+            <!-- List Icon -->
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="list_icon.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       />
+                <Label Text="لیست جهت"
+                       TextColor="#666666"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </VerticalStackLayout>
+
+            <!-- Delete Icon -->
+            <VerticalStackLayout Grid.Column="3"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="delete_icon.png"
+                       HeightRequest="24"
+                       WidthRequest="24"
+                       />
+                <Label Text="حذف"
+                       TextColor="#666666"
+                       FontSize="10"
+                       HorizontalOptions="Center"
+                       FlowDirection="RightToLeft"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
