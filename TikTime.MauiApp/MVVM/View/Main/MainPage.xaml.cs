@@ -13,6 +13,11 @@
         {
 
         }
+
+        private async void CuctomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync($"ListCustomerPage");
+        }
     }
 
 }

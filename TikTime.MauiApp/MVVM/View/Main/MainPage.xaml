@@ -118,7 +118,11 @@
                                    TextColor="White"
                                    FontSize="14"
                                    HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
+                                   FlowDirection="RightToLeft">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CuctomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </VerticalStackLayout>
                     </Frame>
 
