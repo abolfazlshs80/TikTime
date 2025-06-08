@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TikTime.MauiApp.MVVM.Model;
 using TikTime.MauiApp.MVVM.View.Account;
 using TikTime.MauiApp.MVVM.View.Customer;
 using TikTime.MauiApp.MVVM.View.Main;
@@ -19,8 +20,9 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddSingleton<FakeDataService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddSingleton<NavigationDataStore>();
 
-           
+
             return services;
         }
         public static IServiceCollection ConfigurePage(this IServiceCollection services)
@@ -35,6 +37,7 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddTransient<AddPage>();
             services.AddTransient<SettingPage>();
             services.AddTransient<ListCustomerPage>();
+            services.AddTransient<EditCustomerPage>();
             // Add other services as needed
             return services;
         }
