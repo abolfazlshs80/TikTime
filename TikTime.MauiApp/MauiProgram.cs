@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using MauiPersianToolkit;
+using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 using TikTime.MauiApp.Tools.Static.ExtentionMethod;
 
@@ -18,6 +20,10 @@ namespace TikTime.MauiApp
             builder
                 .UseMauiApp<App>()
                 .ConfigureMopups() // <<== Add this line
+
+                //calender persian
+                .UseMauiCommunityToolkit()
+                .UsePersianUIControls()
 
                 .ConfigureFonts(fonts =>
                 {
