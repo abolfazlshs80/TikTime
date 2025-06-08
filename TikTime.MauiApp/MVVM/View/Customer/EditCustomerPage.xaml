@@ -2,9 +2,10 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiPersianToolkit.Controls;assembly=MauiPersianToolkit"
              x:Class="TikTime.MauiApp.MVVM.View.Customer.EditCustomerPage"
              BackgroundColor="White"
-             Shell.NavBarIsVisible="False">
+           >
 
     <Grid RowDefinitions="Auto,*,Auto">
 
@@ -22,14 +23,14 @@
                            TextColor="White"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
-          
+
 
                 <!-- Profile Info -->
                 <StackLayout Grid.Column="1" 
                            HorizontalOptions="End"
                            VerticalOptions="Center"
                            Spacing="5">
-                    <Label Text="علی"
+                    <Label Text="{Binding Customer.Name}"
                            TextColor="Black"
                            FontSize="24"
                            FontAttributes="Bold"
@@ -56,7 +57,7 @@
             </Grid>
 
             <!-- Statistics -->
-            <Grid ColumnDefinitions="Auto,Auto,Auto" 
+            <!--<Grid ColumnDefinitions="Auto,Auto,Auto" 
                   HorizontalOptions="End"
                   ColumnSpacing="20">
 
@@ -98,7 +99,7 @@
                            HorizontalOptions="Center"
                            FlowDirection="RightToLeft"/>
                 </StackLayout>
-            </Grid>
+            </Grid>-->
 
             <!-- Separator Line -->
             <BoxView HeightRequest="1" 
@@ -135,19 +136,16 @@
                       BackgroundColor="#E8E8E8"
                       HeightRequest="40">
 
-                    <Label Grid.Column="0"
-                           Text="بدون گروه"
-                           TextColor="Black"
-                           FontSize="14"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           FlowDirection="RightToLeft"/>
-
-                    <BoxView Grid.Column="0"
-                             WidthRequest="1"
-                             BackgroundColor="#CCCCCC"
-                             HorizontalOptions="End"
-                             VerticalOptions="Fill"/>
+                    <Picker Title="گروه مشتری" Grid.Column="0" x:Name="CustomerCategoryPicker"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            ItemsSource="{Binding CustomerCategoryList}"
+                            SelectedIndexChanged="CustomerCategoryPicker_SelectedIndexChanged"
+                            SelectedItem="{Binding SelectedCustomerCategory}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Converter="{StaticResource CustomerCategoryToTextConverter}" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
 
                     <Label Grid.Column="1"
                            Text="گروه"
@@ -160,25 +158,20 @@
 
                 <!-- Table Rows -->
                 <!-- Birth Row -->
-                <Grid ColumnDefinitions="*,*" 
+                <Grid ColumnDefinitions="*,*"
                       BackgroundColor="White"
-                      HeightRequest="50">
 
-                    <Frame Grid.Column="0"
-                           BackgroundColor="#FF1493"
-                           CornerRadius="15"
-                           HeightRequest="25"
-                           Padding="10,5"
-                           HasShadow="False"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <Label Text="ثبت نشده"
-                               TextColor="White"
-                               FontSize="10"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FlowDirection="RightToLeft"/>
-                    </Frame>
+                      HeightRequest="70">
+
+                    <controls:DatePicker Grid.Column="0"
+                                         SelectedPersianDate="{Binding Customer.BrithDay}"
+                                         OnChangeDateCommand="{Binding OnDateSelected}"
+                                BackgroundColor="Transparent"
+                                TextColor="Black"
+                                x:Name="multiPicker"
+                        
+                            
+                    />
 
                     <BoxView Grid.Column="0"
                              WidthRequest="1"
@@ -205,21 +198,18 @@
                       BackgroundColor="White"
                       HeightRequest="50">
 
-                    <Frame Grid.Column="0"
-                           BackgroundColor="#FF1493"
-                           CornerRadius="15"
-                           HeightRequest="25"
-                           Padding="10,5"
-                           HasShadow="False"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <Label Text="ثبت نشده"
-                               TextColor="White"
-                               FontSize="10"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FlowDirection="RightToLeft"/>
-                    </Frame>
+
+                    <Picker Title="شغل مشتری" Grid.Column="0" x:Name="JobPicker"
+                                HorizontalOptions="Center"
+                                TextColor="Black"
+                                ItemsSource="{Binding JobList}"
+                                SelectedIndexChanged="JobPicker_SelectedIndexChanged"
+                                SelectedItem="{Binding SelectedJob}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Converter="{StaticResource JobToTextConverter}" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+
 
                     <BoxView Grid.Column="0"
                              WidthRequest="1"
@@ -246,21 +236,17 @@
                       BackgroundColor="White"
                       HeightRequest="50">
 
-                    <Frame Grid.Column="0"
-                           BackgroundColor="#FF1493"
-                           CornerRadius="15"
-                           HeightRequest="25"
-                           Padding="10,5"
-                           HasShadow="False"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <Label Text="ثبت نشده"
-                               TextColor="White"
-                               FontSize="10"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FlowDirection="RightToLeft"/>
-                    </Frame>
+                    <Picker Title=" نحوه آشنایی" Grid.Column="0" x:Name="SocialMediaPlatformsPicker"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            ItemsSource="{Binding SocialMediaPlatformsList}"
+                            SelectedIndexChanged="SocialMediaPlatformsPicker_SelectedIndexChanged"
+                            SelectedItem="{Binding SelectedSocialMediaPlatforms}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Converter="{StaticResource SocialMediaPlatformsToTextConverter}" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+
 
                     <BoxView Grid.Column="0"
                              WidthRequest="1"
@@ -288,7 +274,7 @@
 
                 <!-- Descriptions Section -->
                 <StackLayout BackgroundColor="#F8F8F8" Padding="20" Spacing="10">
-                    <Label Text="توضیحات"
+                    <Label Text="{Binding Customer.Desc}"
                            TextColor="#666666"
                            FontSize="14"
                            HorizontalOptions="End"
@@ -299,7 +285,7 @@
 
         <!-- Bottom Navigation -->
         <Grid Grid.Row="2" 
-              BackgroundColor="Black" 
+              BackgroundColor="Azure" 
               HeightRequest="60"
               ColumnDefinitions="*,*,*,*">
 
@@ -307,12 +293,14 @@
             <VerticalStackLayout Grid.Column="0"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Image Source="contact_icon.png"
-                       HeightRequest="24"
-                       WidthRequest="24"
-                       />
+               
+                <Label Text="✆"
+                       FontSize="20"
+          
+       
+                />
                 <Label Text="تماس"
-                       TextColor="White"
+                       
                        FontSize="10"
                        HorizontalOptions="Center"
                        FlowDirection="RightToLeft"/>
@@ -322,9 +310,8 @@
             <VerticalStackLayout Grid.Column="1"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Image Source="add_icon.png"
-                       HeightRequest="24"
-                       WidthRequest="24"
+                <Label Text="✎"
+                       FontSize="20"
                        />
                 <Label Text="ویرایش"
                        TextColor="#666666"
@@ -337,11 +324,10 @@
             <VerticalStackLayout Grid.Column="2"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Image Source="list_icon.png"
-                       HeightRequest="24"
-                       WidthRequest="24"
+                <Label Text="$"
+                   FontSize="20"
                        />
-                <Label Text="لیست جهت"
+                <Label Text="نوبت"
                        TextColor="#666666"
                        FontSize="10"
                        HorizontalOptions="Center"
@@ -352,13 +338,15 @@
             <VerticalStackLayout Grid.Column="3"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                <Image Source="delete_icon.png"
-                       HeightRequest="24"
-                       WidthRequest="24"
+                <Label Text="〤"
+                       FontSize="20"
+                     
+                  
                        />
                 <Label Text="حذف"
                        TextColor="#666666"
                        FontSize="10"
+                       Margin="0,10,0,0"
                        HorizontalOptions="Center"
                        FlowDirection="RightToLeft"/>
             </VerticalStackLayout>
