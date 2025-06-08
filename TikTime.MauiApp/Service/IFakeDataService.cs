@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TikTime.MauiApp.MVVM.Model.Account;
 using TikTime.MauiApp.MVVM.Model.Customer;
+using TikTime.MauiApp.MVVM.Model.Enums;
 
 namespace TikTime.MauiApp.Service
 {
@@ -29,8 +30,8 @@ namespace TikTime.MauiApp.Service
 
         public List<Customer> Customers = new List<Customer>()
         {
-            new Customer(){Id = 1,Name = "abolfazl",Phone = "09389114506",Date = DateOnly.FromDateTime(DateTime.Now)},
-            new Customer(){Id = 1,Name = "mohsen",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now)}
+            new Customer(){Id = 1,Name = "abolfazl",Desc = "توضیحات",Phone = "09389114506",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google},
+            new Customer(){Id = 2,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
         };
     }
 }
