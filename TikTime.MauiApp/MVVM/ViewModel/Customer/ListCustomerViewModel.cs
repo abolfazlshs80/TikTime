@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PropertyChanged;
+using TikTime.MauiApp.MVVM.Model;
 using TikTime.MauiApp.Service;
 
 namespace TikTime.MauiApp.MVVM.ViewModel.Customer
@@ -33,7 +34,8 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Customer
         public ICommand EditProfileCustomer => new Command(async (customer) =>
         {
             var model = customer as Model.Customer.Customer;
-            await Shell.Current.GoToAsync($"EditCustomerPage?CustomerId={model.Id}");
+            NavigationDataStore.Instance.Parameter=model.Id;
+            await Shell.Current.GoToAsync("EditCustomerPage");
         });
 
         public ObservableCollection<Model.Customer.Customer> Customers { get; set; }
