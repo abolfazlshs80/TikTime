@@ -1,4 +1,5 @@
-﻿using TikTime.MauiApp.MVVM.View.Customer;
+﻿using TikTime.MauiApp.MVVM.View.Calender;
+using TikTime.MauiApp.MVVM.View.Customer;
 
 namespace TikTime.MauiApp
 {
@@ -10,6 +11,7 @@ namespace TikTime.MauiApp
             Routing.RegisterRoute(nameof(AddCustomerPage), typeof(AddCustomerPage));
             Routing.RegisterRoute(nameof(EditCustomerPage), typeof(EditCustomerPage));
             Routing.RegisterRoute(nameof(ListCustomerPage), typeof(ListCustomerPage));
+            Routing.RegisterRoute(nameof(CustomCalenderPage), typeof(CustomCalenderPage));
 
             MainPage = new AppShell();
         }

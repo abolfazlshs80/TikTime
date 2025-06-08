@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TikTime.MauiApp"
+             xmlns:enums="clr-namespace:TikTime.MauiApp.MVVM.Model.Enums"
              x:Class="TikTime.MauiApp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -9,6 +10,13 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/CustomControlStyle.xaml" />
+                <ResourceDictionary>
+                    <enums:JobToTextConverter x:Key="JobToTextConverter" />
+                    <enums:CustomerCategoryToTextConverter x:Key="CustomerCategoryToTextConverter" />
+                    <enums:SocialMediaPlatformsToTextConverter x:Key="SocialMediaPlatformsToTextConverter" />
+                </ResourceDictionary>
+
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
