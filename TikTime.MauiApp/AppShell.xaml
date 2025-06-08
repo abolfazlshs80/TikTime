@@ -60,4 +60,9 @@
         Route="ListCustomerPage"
         ContentTemplate="{DataTemplate customer:ListCustomerPage}" />
 
+    <ShellContent 
+        Title="EditCustomerPage"
+        Route="EditCustomerPage"
+        ContentTemplate="{DataTemplate customer:EditCustomerPage}" />
+
 </Shell>
