@@ -30,6 +30,22 @@ namespace TikTime.MauiApp.Service
             return true;
         }
 
+        public async Task<bool> Update(Customer model)
+        {
+            var FindCustomer = FakeDataService.Instance.Customers
+                .FirstOrDefault(u => u.Id.Equals(model.Id));
+            if (FindCustomer is not null)
+            {
+                FindCustomer.BrithDay = model.BrithDay;
+                FindCustomer.Name = model.Name;
+                FindCustomer.Phone = model.Phone;
+                FindCustomer.SocialMediaPlatforms = model.SocialMediaPlatforms;
+                FindCustomer.CustomerJob = model.CustomerJob;
+                FindCustomer.CustomerCategory = model.CustomerCategory;
+            }
+            return true;
+        }
+
         public async Task<bool> Remove(int Id)
         {
             var FindCustomer = FakeDataService.Instance.Customers
@@ -43,13 +59,21 @@ namespace TikTime.MauiApp.Service
         {
             return FakeDataService.Instance.Customers;
         }
+
+        public async Task<Customer> Get(int Id)
+        {
+            return FakeDataService.Instance.Customers
+                      .FirstOrDefault(u => u.Id.Equals(Id));
+        }
     }
 
     public interface ICustomerService
     {
         Task<bool> Add(Customer model);
+        Task<bool> Update(Customer model);
         Task<bool> Remove(int Id);
         Task<IEnumerable<Customer>> GetAll();
+        Task<Customer> Get(int Id);
 
     }
 
