@@ -7,6 +7,7 @@ using TikTime.MauiApp.MVVM.Model;
 using TikTime.MauiApp.MVVM.View.Account;
 using TikTime.MauiApp.MVVM.View.Customer;
 using TikTime.MauiApp.MVVM.View.Main;
+using TikTime.MauiApp.MVVM.View.Nobats;
 using TikTime.MauiApp.Service;
 
 namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
@@ -20,6 +21,8 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddSingleton<FakeDataService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IServiceService, ServiceService>();
+            services.AddScoped<INobatService, NobatService>();
             services.AddSingleton<NavigationDataStore>();
 
 
@@ -38,6 +41,7 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddTransient<SettingPage>();
             services.AddTransient<ListCustomerPage>();
             services.AddTransient<EditCustomerPage>();
+            services.AddTransient<AddNobatPage>();
             // Add other services as needed
             return services;
         }
