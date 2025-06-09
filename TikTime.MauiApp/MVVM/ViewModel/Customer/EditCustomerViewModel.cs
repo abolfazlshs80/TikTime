@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TikTime.MauiApp.MVVM.Model;
 using TikTime.MauiApp.MVVM.Model.Enums;
 using TikTime.MauiApp.Service;
 
@@ -69,6 +70,11 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Customer
         {
             Customer.BrithDay = date.ToString();
            await customerService.Update(Customer);
+        });
+        public ICommand OnNobatCommand => new Command(async () =>
+        {
+            NavigationDataStore.Instance.Parameter = CustomerId;
+            await Shell.Current.GoToAsync($"AddNobatPage");
         });
     }
 }
