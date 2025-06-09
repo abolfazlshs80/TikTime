@@ -7,6 +7,7 @@
     xmlns:account="clr-namespace:TikTime.MauiApp.MVVM.View.Account"
     xmlns:main="clr-namespace:TikTime.MauiApp.MVVM.View.Main"
     xmlns:customer="clr-namespace:TikTime.MauiApp.MVVM.View.Customer"
+    xmlns:nobats="clr-namespace:TikTime.MauiApp.MVVM.View.Nobats"
     Shell.FlyoutBehavior="Disabled"
     Title="TikTime.MauiApp">
     <!--<TabBar>
@@ -64,5 +65,8 @@
         Title="EditCustomerPage"
         Route="EditCustomerPage"
         ContentTemplate="{DataTemplate customer:EditCustomerPage}" />
-
+    <ShellContent 
+        Title="AddNobatPage"
+        Route="AddNobatPage"
+        ContentTemplate="{DataTemplate nobats:AddNobatPage}" />
 </Shell>
