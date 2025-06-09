@@ -104,6 +104,9 @@
 	  <MauiXaml Update="MVVM\View\Main\SettingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Nobats\AddNobatPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\CustomControlStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
