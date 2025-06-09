@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiPersianToolkit.Controls;assembly=MauiPersianToolkit"
+             x:Class="TikTime.MauiApp.MVVM.View.Nobats.AddNobatPage"
+             BackgroundColor="#F5F5F5"
+       >
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="15">
+
+            <!-- Header Section -->
+            <Grid ColumnDefinitions="Auto,*,Auto" Margin="0,10,0,0">
+
+                <!-- Select Contacts Button -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="#E8E8E8"
+                       CornerRadius="10"
+                       HasShadow="False"
+                       Padding="15,10">
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
+                        <Image Source="contacts_icon.png"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                               HorizontalOptions="Center"/>
+                        <Label Text="انتخاب"
+                               TextColor="Black"
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                        <Label Text="مخاطبین"
+                               TextColor="Black"
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Contact Info -->
+                <StackLayout Grid.Column="2" 
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Spacing="5">
+                    <Label Text="نام مشتری"
+                           TextColor="#999999"
+                           FontSize="12"
+                           HorizontalOptions="End"
+                           FlowDirection="RightToLeft"/>
+                    <Label Text="{Binding Customer.Name}"
+                           TextColor="Black"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           HorizontalOptions="End"
+                           FlowDirection="RightToLeft"/>
+                </StackLayout>
+            </Grid>
+
+            <!-- Phone Number -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Grid.Column="0"
+                           Text="{Binding Customer.Phone}"
+                           TextColor="Black"
+                           FontSize="16"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="شماره مشتری"
+                           TextColor="#999999"
+                           FontSize="12"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+            </Frame>
+
+            <!-- Time and Date Section -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+
+                <!-- Time Field -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="False"
+                       Padding="15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TimePicker Grid.Column="0"
+                               Time="{Binding SelectedTime}"
+                               TextColor="Black"
+                               FontSize="16"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="زمان"
+                               TextColor="#999999"
+                               FontSize="12"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Date Field -->
+                <Frame Grid.Column="1"
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="False"
+                       Padding="15">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <controls:DatePicker Grid.Column="0"
+                                             SelectedPersianDate="{Binding Nobat.StartDate}"
+                                             OnChangeDateCommand="{Binding OnDateSelected}"
+                                             BackgroundColor="Transparent"
+                                             TextColor="Black"
+                                             x:Name="multiPicker"
+          
+              
+                        />
+                        <Label Grid.Column="1"
+                               Text="تاریخ"
+                               TextColor="#999999"
+                               FontSize="12"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <!-- Services Dropdown -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Picker Title="یک خدمت انتخاب کنید " Grid.Column="0" x:Name="CustomerCategoryPicker"
+                            HorizontalOptions="Center"
+                            TextColor="Black"
+                            ItemsSource="{Binding ServicesList}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding SelectedService}">
+                    
+                    </Picker>
+                    <Label Grid.Column="2"
+                           Text="خدمات"
+                           TextColor="#999999"
+                           FontSize="12"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+            </Frame>
+
+            <!-- Descriptions Toggle -->
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Switch Grid.Column="0"
+                            x:Name="SwitchDesc"
+                            IsToggled="True"
+                            OnColor="#8A2BE2"
+                            ThumbColor="White"
+                            VerticalOptions="Center"/>
+                    <Label Grid.Column="2"
+                           Text="توضیحات"
+                           TextColor="Black"
+                           FontSize="14"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+            </Frame>
+
+            <!-- Message Templates -->
+            <Frame BackgroundColor="White"
+                   IsVisible="{Binding Source={x:Reference SwitchDesc}, Path=IsToggled}"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="20">
+                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15"   >
+
+                    <!-- For Myself Button -->
+                    <Button Grid.Row="0"
+                            Text="برای خودم"
+                            BackgroundColor="#E8E8E8"
+                            TextColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="50"
+                            FlowDirection="RightToLeft"/>
+
+                    <!-- Additional Text -->
+                    <Label Grid.Row="0"
+                           Text="(درباره ثبت اطلاعات)"
+                           TextColor="#666666"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           Margin="0,5,0,0"
+                           FlowDirection="RightToLeft"/>
+
+                    <!-- For Customer Button -->
+                    <Button Grid.Row="1"
+                            Text="برای مشتری"
+                            BackgroundColor="#E8E8E8"
+                            TextColor="Black"
+                            CornerRadius="10"
+                            HeightRequest="50"
+                            FlowDirection="RightToLeft"/>
+
+                    <!-- Additional Text -->
+                    <Label Grid.Row="1"
+                           Text="(تشکر از مراجعت)"
+                           TextColor="#666666"
+                           FontSize="10"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           Margin="0,5,0,0"
+                           FlowDirection="RightToLeft"/>
+                    <Frame  Grid.Row="2" BackgroundColor="{StaticResource PanelBackgroundLightColor}"
+                            CornerRadius="10"
+                            HasShadow="False"
+                            Padding="20">
+                        <Entry FlowDirection="RightToLeft" Text="{Binding Nobat.Desc}" ></Entry>
+                    </Frame>
+                     
+                </Grid>
+            </Frame>
+
+            <!-- SMS Options -->
+            <VerticalStackLayout Spacing="10">
+
+                <!-- Reserve SMS -->
+                <Frame BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="False"
+                       Padding="15">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Switch Grid.Column="0"
+                                IsToggled="False"
+                                OnColor="#8A2BE2"
+                                ThumbColor="White"
+                                VerticalOptions="Center"/>
+                        <Label Grid.Column="2"
+                               Text="پیامک رزرو"
+                               TextColor="Black"
+                               FontSize="14"
+                               VerticalOptions="Center"
+                               FlowDirection="RightToLeft"/>
+                    </Grid>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- Submit Button -->
+            <Button Text="ثبت"
+                    Clicked="NobatButton_OnClicked"
+                    BackgroundColor="#8A2BE2"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Margin="0,20,0,30"
+                    FlowDirection="RightToLeft"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
