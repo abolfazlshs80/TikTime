@@ -49,21 +49,20 @@
                             <Grid ColumnDefinitions="Auto,*,Auto">
 
                                 <HorizontalStackLayout Grid.Column="0">
-                                    <Button Grid.Column="0"
-                                    Text="-"
+                                    <Button 
+                                    Text="〤"
+                                    TextColor="Black"
                                     FontSize="25"
-                                     HeightRequest="24"
-                                     WidthRequest="24"
+                                    
                                      BackgroundColor="Transparent"
                                      Command="{Binding BindingContext.DeleteCustomerCommand, Source={x:Reference MyCollectionView}}"
                                      CommandParameter="{Binding .}"
                                      VerticalOptions="Center"
                                      />
-                                    <Button Grid.Column="1"
-                                        Text="go"
+                                    <Button 
+                                        Text="☰"
+                                        TextColor="Black"
                                         FontSize="25"
-                                        HeightRequest="24"
-                                        WidthRequest="24"
                                         BackgroundColor="Transparent"
                                         Command="{Binding BindingContext.EditProfileCustomer, Source={x:Reference MyCollectionView}}"
                                         CommandParameter="{Binding .}"
