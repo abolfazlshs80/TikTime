@@ -18,8 +18,8 @@
                 <!-- Back Button -->
 
 
-                <Button Text="نوبت" Grid.Column="0"
-             
+                <Button Clicked="NobatButton_OnClicked" Text="نوبت" Grid.Column="0"
+                        
                            TextColor="White"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
@@ -330,6 +330,7 @@
                 <Label Text="نوبت"
                        TextColor="#666666"
                        FontSize="10"
+                       
                        HorizontalOptions="Center"
                        FlowDirection="RightToLeft"/>
             </VerticalStackLayout>

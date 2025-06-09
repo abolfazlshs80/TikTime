@@ -46,4 +46,12 @@ public partial class EditCustomerPage : ContentPage
             vm.OnJobSelectedCommand?.Execute(selected);
         }
     }
+
+    private void NobatButton_OnClicked(object? sender, EventArgs e)
+    {
+        if (BindingContext is EditCustomerViewModel vm)
+        {
+            vm.OnNobatCommand?.Execute(new object());
+        }
+    }
 }
