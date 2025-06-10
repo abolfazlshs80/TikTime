@@ -18,6 +18,11 @@
         {
             await Shell.Current.GoToAsync($"ListCustomerPage");
         }
+
+        private async void NobatTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync($"ListNobatPage");
+        }
     }
 
 }

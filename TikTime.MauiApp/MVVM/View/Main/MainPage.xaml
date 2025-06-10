@@ -142,11 +142,15 @@
                                    FontSize="24"
                                    FontAttributes="Bold"
                                    HorizontalOptions="Center"/>
-                            <Label Text="ثبت نهی"
+                            <Label Text="لیست نوبت ها"
                                    TextColor="White"
                                    FontSize="14"
                                    HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
+                                   FlowDirection="RightToLeft">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NobatTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </VerticalStackLayout>
                     </Frame>
                 </Grid>
