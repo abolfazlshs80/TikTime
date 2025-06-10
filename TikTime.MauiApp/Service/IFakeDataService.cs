@@ -34,22 +34,27 @@ namespace TikTime.MauiApp.Service
 
             Customers = new List<Customer>()
             {
-                new Customer(){Id = 1,Name = "abolfazl",Desc = "توضیحات",Phone = "09389114506",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google},
-                new Customer(){Id = 2,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
+                new (){Id = 1,Name = "abolfazl",Desc = "توضیحات",Phone = "09389114506",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google},
+                new (){Id = 2,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
             };
             Nobat = new List<Nobat>();
-            //Nobat = new()
-            //{
-            //    new () { Id = 1,Desc = "Desc 1" ,StartDate = "1403-3-3" ,StartTime = "20:20:20",
-            //        Service = Instance.Services[0],ServiceId =Instance.Services[0].Id,
-            //        Customer =Instance.Customers[0],CustomerId = Instance.Customers[0].Id},
-            //    new () {  Id = 2,Desc= "Desc 2",StartDate = "1403-3-4" ,StartTime = "21:20:20",
-            //        Service = Instance.Services[1],ServiceId =Instance.Services[1].Id,
-            //        Customer =Instance.Customers[1],CustomerId = Instance.Customers[1].Id },
-            //    new () {  Id = 3,Desc= "Desc 3",StartDate = "1403-3-5" ,StartTime = "22:20:20",
-            //        Service = Instance.Services[2],ServiceId =Instance.Services[2].Id,
-            //        Customer =Instance.Customers[2],CustomerId = Instance.Customers[2].Id },
-            //};
+            Nobat = new()
+            {
+                new () { Id = 1,Desc = "Desc 1" ,StartDate = "1404-3-20" ,StartTime = "20:20:20",
+                    Service =    new () { Id = 1,Name = "Service 1"},ServiceId =1,
+                    Customer =         new (){Id = 1,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
+                    ,CustomerId = 1},
+                new () {  Id = 2,Desc= "Desc 2",StartDate = "1404-3-21" ,StartTime = "21:20:20",
+                    Service =    new () { Id = 1,Name = "Service 2"},ServiceId =2,
+                    Customer =         new (){Id = 1,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
+                    ,CustomerId = 1 },
+
+
+                new () {  Id = 3,Desc= "Desc 3",StartDate = "1404-3-20" ,StartTime = "21:20:20",
+                    Service =    new () { Id = 1,Name = "Service 2"},ServiceId =2,
+                    Customer =         new (){Id = 1,Name = "mohsen",Desc = "توضیحات",Phone = "09389114206",Date = DateOnly.FromDateTime(DateTime.Now),CustomerCategory = CustomerCategory.Employees,CustomerJob = CustomerJob.Other,SocialMediaPlatforms = SocialMediaPlatforms.Google}
+                    ,CustomerId = 1 },
+            };
 
 
 
