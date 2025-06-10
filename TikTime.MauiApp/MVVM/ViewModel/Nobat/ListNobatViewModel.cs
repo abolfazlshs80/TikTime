@@ -11,6 +11,7 @@ using TikTime.MauiApp.MVVM.Model;
 using TikTime.MauiApp.Service;
 using TikTime.MauiApp.Tools.Static;
 using TikTime.MauiApp.Tools.Static.ExtentionMethod;
+using TikTime.MauiApp.MVVM.Model.Nobat;
 
 namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
 {
@@ -64,26 +65,5 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
         public string StartDate { get; set; }
         public ObservableCollection<AppointmentDay> AppointmentDays { get; set; } = new();
         public IEnumerable<Model.Nobat.Nobat> Nobats { get; set; }
-    }
-
-    public class AppointmentDay
-    {
-        public ObservableCollection<Model.Nobat.Nobat> Nobats { get; set; }
-        public int Day { get; set; }
-        public string Month { get; set; }
-        public int AppointmentCount
-        {
-            get { return Nobats.Count(); }
-
-        }
-        public bool HasAppointments { get; set; }
-        public bool IsSpecial { get; set; } // For pink gradient
-    }
-
-    public class TimeSlot
-    {
-        public string Time { get; set; }
-        public string ClientName { get; set; }
-        public string ServiceName { get; set; }
     }
 }
