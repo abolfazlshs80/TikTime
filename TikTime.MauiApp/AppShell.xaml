@@ -69,4 +69,10 @@
         Title="AddNobatPage"
         Route="AddNobatPage"
         ContentTemplate="{DataTemplate nobats:AddNobatPage}" />
+
+
+    <ShellContent 
+        Title="ListNobatPage"
+        Route="ListNobatPage"
+        ContentTemplate="{DataTemplate nobats:ListNobatPage}" />
 </Shell>
