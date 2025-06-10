@@ -1,10 +1,10 @@
-﻿using MockPars.Application.Extention;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TikTime.MauiApp.MVVM.Model.Enums;
+using TikTime.MauiApp.Tools.Static.ExtentionMethod;
 
 namespace TikTime.MauiApp.MVVM.Model.Customer
 {
