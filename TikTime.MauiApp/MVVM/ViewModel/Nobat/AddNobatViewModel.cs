@@ -31,7 +31,7 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
         public async void LoadData()
         {
             ServicesList = new ObservableCollection<Model.Service.Service>(await serviceService.GetAll());
-            Customer = await customerService.Get(int.Parse(NavigationDataStore.Instance.Parameter.ToString()));
+            Customer = await customerService.Get(int.Parse(NavigationDataStore.Instance.Parameter?.ToString()??"0"))??new Model.Customer.Customer();
         }
 
         public ICommand OnDateSelected => new Command(async (date) =>
