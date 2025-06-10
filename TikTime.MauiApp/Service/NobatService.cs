@@ -14,11 +14,17 @@ namespace TikTime.MauiApp.Service
             FakeDataService.Instance.Nobat.Add(nobat);
             return true;
         }
+
+        public async Task<IEnumerable<Nobat>> GetAll()
+        {
+            return FakeDataService.Instance.Nobat;
+        }
     }
 
     public interface INobatService
     {
         Task<bool> Add(Nobat nobat);
+        Task<IEnumerable<Nobat>> GetAll();
 
     }
 
