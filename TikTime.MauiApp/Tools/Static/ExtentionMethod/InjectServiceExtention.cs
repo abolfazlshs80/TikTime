@@ -42,6 +42,7 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddTransient<ListCustomerPage>();
             services.AddTransient<EditCustomerPage>();
             services.AddTransient<AddNobatPage>();
+            services.AddTransient<ListNobatPage>();
             // Add other services as needed
             return services;
         }
