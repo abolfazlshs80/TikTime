@@ -1,617 +1,188 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TikTime.MauiApp.MVVM.View.Main.MainPage"
-             BackgroundColor="#1A1A1A"
-             Shell.NavBarIsVisible="False">
 
-    <Grid RowDefinitions="*,Auto">
-        <!-- Main Content -->
-        <ScrollView Grid.Row="0">
-            <VerticalStackLayout Spacing="15" Padding="15">
+<ContentPage  x:Class="TikTime.MauiApp.MVVM.View.Main.MainPage"
+              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              Title="TIK TIME"
+              
+              BackgroundColor="#1A1A1A"
+>
 
-                <!-- Header -->
-                <Grid ColumnDefinitions="Auto,*,Auto" 
-                      HeightRequest="50"
-                      Margin="0,10,0,0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-                    <!-- Logo -->
-                    <HorizontalStackLayout Grid.Column="0" Spacing="5">
-                        <Frame BackgroundColor="#8A2BE2"
-                               HeightRequest="24"
-                               WidthRequest="24"
-                               CornerRadius="12"
-                               Padding="0"
-                               HasShadow="False">
-                            <Image Source="check.png" 
-                                   HeightRequest="14" 
-                                   WidthRequest="14"/>
-                        </Frame>
-                        <Label Text="TIK TIME" 
-                               TextColor="#FF00FF" 
-                               FontSize="16" 
-                               FontAttributes="Bold"
-                               VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
+    
+        <!-- Header -->
+        <Frame Grid.Row="1" BackgroundColor="Black" CornerRadius="25" Margin="16,10" Padding="16,12" HasShadow="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                    <!-- Version -->
-                    <Label Grid.Column="2"
-                           Text="VER-3.14"
-                           TextColor="White"
-                           FontSize="12"
-                           VerticalOptions="Center"/>
-                </Grid>
-
-                <!-- Main Banner -->
-                <Frame BackgroundColor="#2D1B69"
-                       CornerRadius="20"
-                       HasShadow="False"
-                       Padding="0"
-                       HeightRequest="180">
-                    <Grid>
-                        <!-- Background Image -->
-                        <Image Source="dashboard_character.png"
-                               Aspect="AspectFill"
-                               HorizontalOptions="End"
-                               VerticalOptions="Fill"/>
-
-                        <!-- Content Overlay -->
-                        <VerticalStackLayout Padding="20"
-                                             VerticalOptions="Start"
-                                             HorizontalOptions="Start">
-                            <Label Text="کمک لازم داری؟"
-                                   TextColor="White"
-                                   FontSize="18"
-                                   FlowDirection="RightToLeft"/>
-
-                            <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
-                                <Image Source="back_arrow.png"
-                                       HeightRequest="16"
-                                       WidthRequest="16"
-                                       Rotation="180"/>
-                                <Label Text="پشتیبانی"
-                                       TextColor="White"
-                                       FontSize="16"
-                                       FlowDirection="RightToLeft"/>
-                            </HorizontalStackLayout>
-
-                            <HorizontalStackLayout Spacing="5" Margin="0,20,0,0">
-                                <Frame BackgroundColor="#8A2BE2"
-                                       HeightRequest="20"
-                                       WidthRequest="20"
-                                       CornerRadius="10"
-                                       Padding="0"
-                                       HasShadow="False">
-                                    <Image Source="check.png" 
-                                           HeightRequest="12" 
-                                           WidthRequest="12"/>
-                                </Frame>
-                                <Label Text="TIK TIME" 
-                                       TextColor="#FF00FF" 
-                                       FontSize="14" 
-                                       FontAttributes="Bold"
-                                       VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </VerticalStackLayout>
-                    </Grid>
+                <!-- Logo -->
+                <Frame Grid.Column="0" BackgroundColor="#8A2BE2" CornerRadius="15" WidthRequest="30" HeightRequest="30" Padding="0" HasShadow="False">
+                    <Label Text="✓" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                 </Frame>
 
-                <!-- Stats Cards -->
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                    <!-- Customers Card -->
-                    <Frame Grid.Column="0"
-                           BackgroundColor="#2D1B69"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Image Source="user_icon.png"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-/>
-                            <Label Text="0"
-                                   TextColor="White"
-                                   FontSize="24"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="مشتریان"
-                                   TextColor="White"
-                                   FontSize="14"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="CuctomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </VerticalStackLayout>
-                    </Frame>
+                <!-- Title -->
+                <StackLayout Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0" VerticalOptions="Center">
+                    <Label Text="TIK TIME" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                    <Label Text="BUSINESS PRIME" FontSize="10" TextColor="#888888" />
+                </StackLayout>
 
-                    <!-- Registrations Card -->
-                    <Frame Grid.Column="1"
-                           BackgroundColor="#2D1B69"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Image Source="book_icon.png"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-/>
-                            <Label Text="0"
-                                   TextColor="White"
-                                   FontSize="24"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="لیست نوبت ها"
-                                   TextColor="White"
-                                   FontSize="14"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="NobatTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </VerticalStackLayout>
+                <!-- Version -->
+                <Label Grid.Column="2" Text="VER 3.14" FontSize="14" FontAttributes="Bold" TextColor="#FF1493" VerticalOptions="Center" Margin="0,0,10,0" />
+
+                <!-- Notification -->
+                <Grid Grid.Column="3">
+                    <Frame BackgroundColor="#E6E6FA" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
+                        <Label Text="🔔" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                    <Frame BackgroundColor="#8A2BE2" CornerRadius="10" WidthRequest="20" HeightRequest="20" Padding="0" HasShadow="False" 
+                           HorizontalOptions="End" VerticalOptions="Start" Margin="0,-5,-5,0">
+                        <Label Text="0" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                     </Frame>
                 </Grid>
+            </Grid>
+        </Frame>
 
-                <!-- SMS Section -->
-                <Grid ColumnDefinitions="*,Auto,*" 
-                      HeightRequest="80"
-                      Margin="0,10">
+        <!-- Support Banner -->
+        <Frame Grid.Row="2" Margin="16,10" CornerRadius="20" Padding="0" HasShadow="True" HeightRequest="150">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#2D1B69" Offset="0.0" />
+                    <GradientStop Color="#8A2BE2" Offset="0.5" />
+                    <GradientStop Color="#FF1493" Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
 
-                    <!-- Increase Balance -->
-                    <Frame Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="10">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="2">
-                            <Label Text="!"
-                                   TextColor="White"
-                                   FontSize="20"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="افزایش"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                            <Label Text="موجودی"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Text Content -->
+                <StackLayout Grid.Column="0" Padding="20" VerticalOptions="Center" FlowDirection="RightToLeft">
+                    <Label Text="کمک لازم داری؟" FontSize="14" TextColor="#FFB6C1" />
+                    <Label Text="پشتیبانی" FontSize="24" FontAttributes="Bold" TextColor="White" />
+                    <Frame BackgroundColor="#FF1493" CornerRadius="15" Padding="8,4" HorizontalOptions="Start" Margin="0,10,0,0" HasShadow="False">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="✓" FontSize="12" TextColor="White" />
+                            <Label Text="TIKTIME" FontSize="12" FontAttributes="Bold" TextColor="White" />
+                        </StackLayout>
                     </Frame>
+                </StackLayout>
 
-                    <!-- SMS Button -->
-                    <Frame Grid.Column="1"
-                           BackgroundColor="#8A2BE2"
-                           CornerRadius="40"
-                           HeightRequest="80"
-                           WidthRequest="80"
-                           Padding="0"
-                           HasShadow="True">
-                        <VerticalStackLayout HorizontalOptions="Center" 
-                                             VerticalOptions="Center" 
-                                             Spacing="2">
-                            <Label Text="SMS"
-                                   TextColor="White"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="پیامک"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+                <!-- Character Image -->
+                <Image Grid.Column="1" Source="support-character.png" WidthRequest="120" HeightRequest="120" Aspect="AspectFit" />
+            </Grid>
+        </Frame>
 
-                    <!-- Buy Package -->
-                    <Frame Grid.Column="2"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="10">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="2">
-                            <Label Text="+"
-                                   TextColor="White"
-                                   FontSize="20"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Label Text="خرید"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                            <Label Text="پکیج"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </Grid>
+        <!-- Stats Cards -->
+        <Grid Grid.Row="3" Margin="16,10" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <!-- Feature Buttons Grid -->
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto" 
-                      ColumnDefinitions="*,*" 
-                      RowSpacing="10" 
-                      ColumnSpacing="10">
+            <!-- Customers Card -->
+            <Frame Grid.Column="0" BackgroundColor="#2D1B69" CornerRadius="20" Padding="20" HasShadow="False">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                    <Label Text="👤" FontSize="30" TextColor="#FF1493" HorizontalOptions="Center" />
+                    <Label Text="2" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="مشتریان" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
 
-                    <!-- Row 1 -->
-                    <Frame Grid.Row="0" Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="bell_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="یادآوری پیوتیم"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+            <!-- Appointments Card -->
+            <Frame Grid.Column="1" BackgroundColor="#2D1B69" CornerRadius="20" Padding="20" HasShadow="False">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                    <Label Text="📖" FontSize="30" TextColor="#FF1493" HorizontalOptions="Center" />
+                    <Label Text="2" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="نوبت دهی" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </Grid>
 
-                    <Frame Grid.Row="0" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="speed_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="سرعت تولید"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+        <!-- SMS Section -->
+        <Grid Grid.Row="4" Margin="16,20" VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                    <!-- Row 2 -->
-                    <Frame Grid.Row="1" Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="survey_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="رضایت سنجی"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+            <!-- Usage Report -->
+            <Frame Grid.Column="0" BackgroundColor="#333333" CornerRadius="20" Padding="15" HasShadow="False" VerticalOptions="Center">
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label Text="!" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="گزارش" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="مصرف" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
 
-                    <Frame Grid.Row="1" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Image Source="signal_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="پنل پیامک"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+            <!-- SMS Circle -->
+            <Grid Grid.Column="1" WidthRequest="150" HeightRequest="150">
+                <!-- Outer Ring -->
+                <Frame BackgroundColor="Transparent" BorderColor="#666666" CornerRadius="75" WidthRequest="150" HeightRequest="150" Padding="0" HasShadow="False" />
+                <!-- Inner Circle -->
+                <Frame BackgroundColor="#8A2BE2" CornerRadius="60" WidthRequest="120" HeightRequest="120" Padding="0" HasShadow="False" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="SMS" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                        <Label Text="را فعال کنید" FontSize="12" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
 
-                    <!-- Row 3 -->
-                    <Frame Grid.Row="2" Grid.Column="0"
-                           BackgroundColor="#8A2BE2"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Label Text="NEW"
-                                   TextColor="White"
-                                   FontSize="10"
-                                   FontAttributes="Bold"
-                                   HorizontalOptions="Center"/>
-                            <Image Source="wallet_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-                                 />
-                            <Label Text="کیف پول"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+            <!-- Increase SMS -->
+            <Frame Grid.Column="2" BackgroundColor="#333333" CornerRadius="20" Padding="15" HasShadow="False" VerticalOptions="Center">
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label Text="+" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="افزایش" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="پیامک" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </Grid>
 
-                    <Frame Grid.Row="2" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="card_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="کارت اعتباری"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                            <Label Text="جدید"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+        <!-- Bottom Navigation -->
+        <!--<Frame Grid.Row="5" BackgroundColor="White" CornerRadius="0" HasShadow="True" Padding="0" HeightRequest="80">
+            <Grid Padding="10,10,10,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    <!-- Row 4 -->
-                    <Frame Grid.Row="3" Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="tracking_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="پیگیری مشتری"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
+                --><!-- Settings --><!--
+                <Button Grid.Column="0" Text="⚙️" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnSettingsClicked" />
 
-                    <Frame Grid.Row="3" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="30"
-                                   WidthRequest="30"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="10"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-5,-5,0"/>
-                            </Frame>
-                            <Image Source="store_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <Label Text="فروشگاهی"
-                                   TextColor="White"
-                                   FontSize="12"
-                                   HorizontalOptions="Center"
-                                   FlowDirection="RightToLeft"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </Grid>
+                --><!-- List --><!--
+                <Button Grid.Column="1" Text="☰" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnListClicked" />
 
-                <!-- Bottom Feature Buttons -->
-                <Grid RowDefinitions="Auto,Auto" 
-                      ColumnDefinitions="*,*" 
-                      RowSpacing="10" 
-                      ColumnSpacing="10"
-                      Margin="0,10,0,0">
+                --><!-- Add (Center) --><!--
+                <Button Grid.Column="2" BackgroundColor="Transparent" Clicked="OnAddClicked">
+                 
+                </Button>
 
-                    <!-- Reports -->
-                    <Frame Grid.Row="0" Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-                            <Image Source="chart_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="گزارش"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                                <Label Text="و پیگیری"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </Frame>
+                --><!-- Search --><!--
+                <Button Grid.Column="3" Text="🔍" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnSearchClicked" />
 
-                    <!-- Website -->
-                    <Frame Grid.Row="0" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-                            <Image Source="globe_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="وب سایت"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                                <Label Text="و نت ورک"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </Frame>
-
-                    <!-- Panel Access -->
-                    <Frame Grid.Row="1" Grid.Column="0"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="20"
-                                   WidthRequest="20"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="8"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-3,-3,0"/>
-                            </Frame>
-                            <Image Source="panel_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="دسترسی"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                                <Label Text="به پنل"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </Frame>
-
-                    <!-- Accounting -->
-                    <Frame Grid.Row="1" Grid.Column="1"
-                           BackgroundColor="#333333"
-                           CornerRadius="15"
-                           HasShadow="False"
-                           Padding="15">
-                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-                            <Frame BackgroundColor="#8A2BE2"
-                                   CornerRadius="15"
-                                   HeightRequest="20"
-                                   WidthRequest="20"
-                                   Padding="0"
-                                   HasShadow="False">
-                                <Label Text="0"
-                                       TextColor="White"
-                                       FontSize="8"
-                                       HorizontalOptions="End"
-                                       VerticalOptions="Start"
-                                       Margin="0,-3,-3,0"/>
-                            </Frame>
-                            <Image Source="accounting_icon.png"
-                                   HeightRequest="24"
-                                   WidthRequest="24"
-/>
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="حسابداری"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                                <Label Text="و ثبت هزینه"
-                                       TextColor="White"
-                                       FontSize="12"
-                                       FlowDirection="RightToLeft"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-                    </Frame>
-                </Grid>
-
-                <!-- Bottom Spacing -->
-                <BoxView HeightRequest="20" Color="Transparent"/>
-            </VerticalStackLayout>
-        </ScrollView>
-
+                --><!-- Home --><!--
+                <Button Grid.Column="4" Text="🏠" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnHomeClicked" />
+            </Grid>
+        </Frame>-->
     </Grid>
 </ContentPage>
