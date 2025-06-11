@@ -19,16 +19,16 @@
     </TabBar>-->
 
     <TabBar>
-        <Tab Title="Home" Icon="icons8_home_tab.svg">
+        <Tab Title="خانه" Icon="icons8_home_tab.svg">
             <ShellContent ContentTemplate="{DataTemplate main:MainPage}" />
         </Tab>
 
 
-        <Tab Title="add" Icon="icons8_add_tab">
+        <Tab Title="افزودن" Icon="icons8_add_tab">
             <ShellContent ContentTemplate="{DataTemplate main:AddPage}" />
         </Tab>
 
-        <Tab Title="Setting" Icon="icons8_settings_tab.svg">
+        <Tab Title="تنظیمات" Icon="icons8_settings_tab.svg">
             <ShellContent ContentTemplate="{DataTemplate main:SettingPage}" />
         </Tab>
 
