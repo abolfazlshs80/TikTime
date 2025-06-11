@@ -123,7 +123,7 @@
                            VerticalOptions="Center"/>
 
                     <Label Grid.Column="1"
-                           Text="ثبت‌ها"
+                           Text="‌اطلاعات"
                            TextColor="#666666"
                            FontSize="12"
                            VerticalOptions="Center"
@@ -131,42 +131,21 @@
                            FlowDirection="RightToLeft"/>
                 </Grid>
 
-                <!-- Table Header -->
-                <Grid ColumnDefinitions="*,*" 
-                      BackgroundColor="#E8E8E8"
-                      HeightRequest="40">
-
-                    <Picker Title="گروه مشتری" Grid.Column="0" x:Name="CustomerCategoryPicker"
-                            HorizontalOptions="Center"
-                            TextColor="Black"
-                            ItemsSource="{Binding CustomerCategoryList}"
-                            SelectedIndexChanged="CustomerCategoryPicker_SelectedIndexChanged"
-                            SelectedItem="{Binding SelectedCustomerCategory}">
-                        <Picker.ItemDisplayBinding>
-                            <Binding Converter="{StaticResource CustomerCategoryToTextConverter}" />
-                        </Picker.ItemDisplayBinding>
-                    </Picker>
-
-                    <Label Grid.Column="1"
-                           Text="گروه"
-                           TextColor="Black"
-                           FontSize="14"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           FlowDirection="RightToLeft"/>
-                </Grid>
+           
 
                 <!-- Table Rows -->
                 <!-- Birth Row -->
                 <Grid ColumnDefinitions="*,*"
                       BackgroundColor="White"
-
-                      HeightRequest="70">
+VerticalOptions="Center"
+                    >
 
                     <controls:DatePicker Grid.Column="0"
                                          SelectedPersianDate="{Binding Customer.BrithDay}"
                                          OnChangeDateCommand="{Binding OnDateSelected}"
                                 BackgroundColor="Transparent"
+                                         HorizontalOptions="Center"
+                                        VerticalOptions="Center"
                                 TextColor="Black"
                                 x:Name="multiPicker"
                         
@@ -196,11 +175,12 @@
                 <!-- Job Row -->
                 <Grid ColumnDefinitions="*,*" 
                       BackgroundColor="White"
-                      HeightRequest="50">
+                 >
 
 
-                    <Picker Title="شغل مشتری" Grid.Column="0" x:Name="JobPicker"
-                                HorizontalOptions="Center"
+                    <Picker  Grid.Column="0" x:Name="JobPicker"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
                                 TextColor="Black"
                                 ItemsSource="{Binding JobList}"
                                 SelectedIndexChanged="JobPicker_SelectedIndexChanged"
@@ -236,8 +216,8 @@
                       BackgroundColor="White"
                       HeightRequest="50">
 
-                    <Picker Title=" نحوه آشنایی" Grid.Column="0" x:Name="SocialMediaPlatformsPicker"
-                            HorizontalOptions="Center"
+                    <Picker  Grid.Column="0" x:Name="SocialMediaPlatformsPicker"
+                            HorizontalTextAlignment="Center"
                             TextColor="Black"
                             ItemsSource="{Binding SocialMediaPlatformsList}"
                             SelectedIndexChanged="SocialMediaPlatformsPicker_SelectedIndexChanged"
@@ -256,6 +236,38 @@
 
                     <Label Grid.Column="1"
                            Text="نحوه آشنایی"
+                           TextColor="Black"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FlowDirection="RightToLeft"/>
+                </Grid>
+
+
+
+                <!-- Table Header -->
+                <Grid ColumnDefinitions="*,*" 
+   >
+
+                    <Picker  Grid.Column="0" x:Name="CustomerCategoryPicker"
+                            HorizontalTextAlignment="Center"
+                            TextColor="Black"
+                            ItemsSource="{Binding CustomerCategoryList}"
+                            SelectedIndexChanged="CustomerCategoryPicker_SelectedIndexChanged"
+                            SelectedItem="{Binding SelectedCustomerCategory}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Converter="{StaticResource CustomerCategoryToTextConverter}" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+
+
+                    <BoxView Grid.Column="0"
+                             WidthRequest="1"
+                             BackgroundColor="#CCCCCC"
+                             HorizontalOptions="End"
+                             VerticalOptions="Fill"/>
+                    <Label Grid.Column="1"
+                           Text="گروه"
                            TextColor="Black"
                            FontSize="14"
                            HorizontalOptions="Center"
