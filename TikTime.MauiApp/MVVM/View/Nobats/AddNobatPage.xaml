@@ -68,6 +68,7 @@
                            FontSize="16"
                            VerticalOptions="Center"/>
                     <Label Grid.Column="1"
+                           HorizontalTextAlignment="Center"
                            Text="شماره مشتری"
                            TextColor="#999999"
                            FontSize="12"
@@ -131,21 +132,17 @@
                    CornerRadius="10"
                    HasShadow="False"
                    Padding="15">
-                <Grid ColumnDefinitions="Auto,*,Auto">
+                <Grid ColumnDefinitions="*">
                     <Picker Title="یک خدمت انتخاب کنید " Grid.Column="0" x:Name="CustomerCategoryPicker"
-                            HorizontalOptions="Center"
+             HorizontalOptions="End"
+             
                             TextColor="Black"
                             ItemsSource="{Binding ServicesList}"
                             ItemDisplayBinding="{Binding Name}"
                             SelectedItem="{Binding SelectedService}">
-                    
+
                     </Picker>
-                    <Label Grid.Column="2"
-                           Text="خدمات"
-                           TextColor="#999999"
-                           FontSize="12"
-                           VerticalOptions="Center"
-                           FlowDirection="RightToLeft"/>
+
                 </Grid>
             </Frame>
 
@@ -221,7 +218,7 @@
                             Padding="20">
                         <Entry FlowDirection="RightToLeft" Text="{Binding Nobat.Desc}" ></Entry>
                     </Frame>
-                     
+
                 </Grid>
             </Frame>
 
