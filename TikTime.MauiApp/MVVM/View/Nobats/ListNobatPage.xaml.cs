@@ -19,16 +19,6 @@ public partial class ListNobatPage : ContentPage
       
     }
 
-    private async void OnAddAppointmentClicked(object sender, EventArgs e)
-    {
-        await DisplayAlert("ثبت نوبت", "Add appointment functionality", "OK");
-    }
-
-    private async void OnTimeSlotClicked(object sender, EventArgs e)
-    {
-        await DisplayAlert("انتخاب زمان", "Time slot selection", "OK");
-    }
-
     private async void AddNobatTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
     {
         NavigationDataStore.Instance.Parameter = null;
