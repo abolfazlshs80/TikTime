@@ -41,14 +41,19 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
 
             for (int i = currentDate.DayToShamsi(); i < 29; i++)
             {
+                //string tempMonth = PersianTools.GetPersianMonthName(currentDate.MonthToShamsi());
+                //var n= Nobats.Where(_ =>
+                //    int.Parse(_.StartDate.Split('-')[2]) == i &&
+                //    int.Parse(_.StartDate.Split('-')[1]) == currentDate.MonthToShamsi() &&
+                //    int.Parse(_.StartDate.Split('-')[0]) == currentDate.YearToShamsi()).ToList();
                 AppointmentDays.Add(new AppointmentDay()
                 {
                     Month = PersianTools.GetPersianMonthName(currentDate.MonthToShamsi()),
                     Day = i,
                     Nobats =new(Nobats.Where(_ => 
-                                                int.Parse(_.StartDate.Split('-')[2]) == i &&
-                                               int.Parse(_.StartDate.Split('-')[1]) == currentDate.MonthToShamsi() &&
-                                               int.Parse(_.StartDate.Split('-')[0]) == currentDate.YearToShamsi())),
+                                                int.Parse(_.StartDate.Split('/')[2]) == i &&
+                                               int.Parse(_.StartDate.Split('/')[1]) == currentDate.MonthToShamsi() &&
+                                               int.Parse(_.StartDate.Split('/')[0]) == currentDate.YearToShamsi())),
                     HasAppointments = false
                 });
             }
