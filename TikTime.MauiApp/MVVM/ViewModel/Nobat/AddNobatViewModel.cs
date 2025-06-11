@@ -48,6 +48,8 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
 
             Nobat.StartTime = SelectedTime.ToString();
             await nobatService.Add(Nobat);
+
+            await Shell.Current.GoToAsync($"ListNobatPage");
         });
 
         public TimeSpan SelectedTime { get; set; } = new();
