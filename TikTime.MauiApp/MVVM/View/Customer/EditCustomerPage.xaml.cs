@@ -8,11 +8,11 @@ namespace TikTime.MauiApp.MVVM.View.Customer;
 public partial class EditCustomerPage : ContentPage
 {
     public int CustomerId { get; set; }
-	public EditCustomerPage(IServiceProvider serviceProvider)
-	{
-		InitializeComponent();
+    public EditCustomerPage(IServiceProvider serviceProvider)
+    {
+        InitializeComponent();
         CustomerId = int.Parse(NavigationDataStore.Instance.Parameter.ToString());
-        var model = new EditCustomerViewModel(serviceProvider){CustomerId = CustomerId};
+        var model = new EditCustomerViewModel(serviceProvider) { CustomerId = CustomerId };
         model.CustomerId = CustomerId;
         model.LoadCustomer();
         BindingContext = model;
@@ -24,8 +24,8 @@ public partial class EditCustomerPage : ContentPage
     {
         if (BindingContext is EditCustomerViewModel vm)
         {
-            var selectedJob = (CustomerJob)JobPicker.SelectedItem;
-            vm.OnJobSelectedCommand?.Execute(selectedJob);
+            if (JobPicker.SelectedItem is CustomerJob selectedJob)
+                vm.OnJobSelectedCommand?.Execute(selectedJob);
         }
     }
 
