@@ -3,9 +3,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TikTime.MauiApp.MVVM.View.Customer.AddCustomerPage"
-             Title="AddCustomerPage"
+             Title="اضافه کردن مشتری جدید"
              BackgroundColor="#E8E8E8"
-             Shell.NavBarIsVisible="False">
+             >
 
     <VerticalStackLayout Spacing="15" 
                          Padding="20"
@@ -36,17 +36,22 @@
                 </Frame>
 
                 <!-- Text -->
-                <Button Grid.Column="1"
+                <Label Grid.Column="1"
                        Text="افزودن نکی"
                        TextColor="Black"
                        BackgroundColor="Transparent"
-                       Clicked="OnAddNoteClicked"
+                 
                        FontSize="16"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       FlowDirection="RightToLeft"/>
+                       FlowDirection="RightToLeft">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAddNoteClicked"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
         </Frame>
+   
 
         <!-- Excel File Button -->
         <Frame BackgroundColor="#D0D0D0"
