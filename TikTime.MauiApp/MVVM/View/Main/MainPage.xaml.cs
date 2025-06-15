@@ -49,6 +49,11 @@
         {
             DisplayAlert("Home", "Home clicked", "OK");
         }
+
+        private async void NotificationTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync("NotificationPage");
+        }
     }
 
 }

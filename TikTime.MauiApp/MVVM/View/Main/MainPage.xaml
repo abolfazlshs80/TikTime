@@ -46,7 +46,11 @@
                 <!-- Notification -->
                 <Grid Grid.Column="3">
                     <Frame BackgroundColor="#E6E6FA" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
-                        <Label Text="🔔" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Label Text="🔔" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NotificationTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Frame>
                     <Frame BackgroundColor="#8A2BE2" CornerRadius="10" WidthRequest="20" HeightRequest="20" Padding="0" HasShadow="False" 
                            HorizontalOptions="End" VerticalOptions="Start" Margin="0,-5,-5,0">
@@ -101,7 +105,11 @@
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
                     <Label Text="👤" FontSize="30" TextColor="#FF1493" HorizontalOptions="Center" />
                     <Label Text="2" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
-                    <Label Text="مشتریان" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="مشتریان" FontSize="14" TextColor="White" HorizontalOptions="Center" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CuctomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
             </Frame>
 
@@ -110,7 +118,11 @@
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
                     <Label Text="📖" FontSize="30" TextColor="#FF1493" HorizontalOptions="Center" />
                     <Label Text="2" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
-                    <Label Text="نوبت دهی" FontSize="14" TextColor="White" HorizontalOptions="Center" />
+                    <Label Text="نوبت دهی" FontSize="14" TextColor="White" HorizontalOptions="Center" >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="NobatTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
             </Frame>
         </Grid>
