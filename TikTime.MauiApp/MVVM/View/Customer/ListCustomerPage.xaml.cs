@@ -1,10 +1,13 @@
-using MauiPersianToolkit.Controls;
+﻿using MauiPersianToolkit.Controls;
 using MauiPersianToolkit.Models;
 using MauiPersianToolkit.Services.Dialog;
+using System.Collections.ObjectModel;
 using TikTime.MauiApp.MVVM.ViewModel.Customer;
 using TikTime.MauiApp.Service;
 
 namespace TikTime.MauiApp.MVVM.View.Customer;
+
+
 
 public partial class ListCustomerPage : ContentPage
 {
@@ -15,38 +18,55 @@ public partial class ListCustomerPage : ContentPage
         this._customerService = serviceProvider.GetRequiredService<ICustomerService>();
         BindingContext = new ListCustomerViewModel(serviceProvider);
 
-        //DialogService dialogService = new DialogService();
 
-
-
-        //// Custom Dialog
-        //dialogService.CustomDialog(new CustomDialogConfig()
-        //{
-        //    Title = "Register Information",
-        //    AcceptText = "Register",
-        //    CancelText = "Cancle",
-        //    Message = "Enter Your Info",
-        //    Icon = MessageIcon.QUESTION,
-        //    AcceptIcon = MessageIcon.QUESTION,
-        //    Cancelable = true,
-        //    CancelIcon = MessageIcon.ERROR,
-        //    DialogColor = Colors.DeepPink,
-        //    CloseWhenBackgroundIsClicked = false,
-        //    CloseAfterAccept = true,
-        //    OnAction = new Action<bool>((arg) => { }),
-        //    Content = new StackLayout()
-        //    {
-        //        Children =
-        //        {
-        //            new MauiPersianToolkit.Controls.DatePicker(){ PlaceHolder = "BirthDate" }
-        //        }
-        //    }
-        //});
     }
 
     private async void AddCuctomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
     {
 
         await Shell.Current.GoToAsync($"AddCustomerPage");
+    }
+
+   
+
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
+    }
+
+    private void OnMenuClicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Menu", "Menu clicked", "OK");
+    }
+
+    private async void OnDeleteClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("حذف", "حذف مشتری انتخاب شد", "تایید");
+    }
+
+    private async void OnSearchClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("جستجو", "جستجوی مشتری انتخاب شد", "تایید");
+    }
+
+    private async void OnSortClicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("مرتب‌سازی", "مرتب‌سازی مشتریان انتخاب شد", "تایید");
+    }
+
+    private async void OnAddCustomerClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//AddCustomerPage");
+    }
+
+    private void OnSettingsClicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Settings", "Settings clicked", "OK");
+    }
+
+ 
+    private async void OnHomeClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//MainPage");
     }
 }

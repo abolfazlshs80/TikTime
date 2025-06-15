@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TikTime.MauiApp.MVVM.View.Customer.ListCustomerPage"
@@ -7,12 +8,12 @@
 
     <VerticalStackLayout Spacing="15" Padding="15">
 
-        <!-- Top Action Buttons -->
+        --><!-- Top Action Buttons --><!--
         <Grid  ColumnSpacing="10">
 
 
 
-            <!-- Add Button -->
+            --><!-- Add Button --><!--
             <Frame Grid.Column="0"
                    BackgroundColor="#D0D0D0"
                    CornerRadius="10"
@@ -69,13 +70,13 @@
                                         VerticalOptions="Center"
                                                                  />
                                 </HorizontalStackLayout>
-                                <!-- دکمه حذف -->
+                                --><!-- دکمه حذف -->
 
 
                                 <!-- فاصله یا جداساز -->
                                 <!--<Label TextColor="Red" Text="-" Grid.Column="1" />-->
 
-                                <!-- اطلاعات مشتری -->
+                                <!-- اطلاعات مشتری --><!--
                                 <VerticalStackLayout Grid.Column="2"
                                              HorizontalOptions="End"
                                              Spacing="2">
@@ -103,4 +104,132 @@
 
 
     </VerticalStackLayout>
+</ContentPage>-->
+
+<ContentPage x:Class="TikTime.MauiApp.MVVM.View.Customer.ListCustomerPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Title="مشتریان"
+             BackgroundColor="#F0F0F0"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+
+
+
+        <!-- Action Buttons -->
+        <Grid Grid.Row="2" Margin="16,10" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Delete Button -->
+            <Frame Grid.Column="0" BackgroundColor="White" CornerRadius="15" Padding="0" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                        <Label Text="−" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                        <Label Text="حذف" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+            <!-- Search Button -->
+            <Frame Grid.Column="1" BackgroundColor="White" CornerRadius="15" Padding="0" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent" >
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                        <Label Text="🔍" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+                        <Label Text="جستجو" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+            <!-- Sort Button -->
+            <Frame Grid.Column="2" BackgroundColor="White" CornerRadius="15" Padding="0" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent" >
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                        <Label Text="↓" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                        <Label Text="مرتب‌سازی" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+            <!-- Add Button -->
+            <Frame Grid.Column="3" BackgroundColor="White" CornerRadius="15" Padding="0" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                        <Label Text="+" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                        <Label Text="افزودن" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+        <!-- Customer List -->
+        <ScrollView Grid.Row="3" Padding="16,10">
+            <StackLayout x:Name="CustomerListContainer" Spacing="10">
+
+                <!-- Customer 1: Ali -->
+              
+
+                <CollectionView ItemsSource="{Binding Customers}" x:Name="MyCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10">
+
+                                <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True" HeightRequest="80">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Purple Arrow -->
+                                        <Frame Grid.Column="0" BackgroundColor="#E6E6FA" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" VerticalOptions="Center">
+                                            <Button BackgroundColor="Transparent" 
+                                                    Text="&#x276E;" FontSize="15" FontAttributes="Bold"
+                                                    TextColor="#8A2BE2" HorizontalOptions="Center"
+                                                    VerticalOptions="Center" 
+                                                    Command="{Binding BindingContext.EditProfileCustomer, Source={x:Reference MyCollectionView}}"
+                                                    CommandParameter="{Binding .}"
+                                                    />
+                                        </Frame>
+
+                                        <!-- Customer Info -->
+                                        <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End">
+                                            <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End" />
+                                            <Label Text="{Binding Date}" FontSize="12" TextColor="Gray" HorizontalOptions="End" />
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>
