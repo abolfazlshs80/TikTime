@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using MauiPersianToolkit;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Handlers;
 using Mopups.Hosting;
 using TikTime.MauiApp.Tools.Static.ExtentionMethod;
 
@@ -34,7 +35,13 @@ namespace TikTime.MauiApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
+#if ANDROID
+            PickerHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
+            {
+                handler.PlatformView.BackgroundTintList =
+                    Android.Content.Res.ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+            });
+#endif
             return builder.Build();
         }
     }
