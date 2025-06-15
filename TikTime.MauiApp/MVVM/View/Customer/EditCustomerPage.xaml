@@ -344,7 +344,7 @@ VerticalOptions="Center"
 
         <!-- Main Content -->
         <ScrollView Grid.Row="1" Padding="16">
-            <StackLayout Spacing="16">
+            <StackLayout Spacing="5">
 
                 <!-- Customer Profile Card -->
                 <Frame BackgroundColor="White" CornerRadius="15" Padding="20" HasShadow="True">
@@ -469,19 +469,19 @@ VerticalOptions="Center"
                 </Frame>
 
                 <!-- File Description Section -->
-                <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
+                <!--<Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
                     <Label Text="توضیحات پرونده" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
-                </Frame>
+                </Frame>-->
 
                 <!-- Description Section -->
                 <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
-                    <VerticalStackLayout>
-                        <Label Text="توضیحات" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End" />
+                    <HorizontalStackLayout FlowDirection="RightToLeft">
+                        <Label Text="توضیحات :" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End" />
                         <Entry IsReadOnly="True" Text="توضیحات" FlowDirection="RightToLeft"></Entry>
-                    </VerticalStackLayout>
+                    </HorizontalStackLayout>
                   
                 </Frame>
-                <Frame  BackgroundColor="#2C2C2C" CornerRadius="15" Padding="16" HasShadow="True">
+                <Frame  BackgroundColor="#2C2C2C" CornerRadius="20" Margin="0" Padding="0" HasShadow="True" HeightRequest="80">
                     <Grid Padding="16,12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
