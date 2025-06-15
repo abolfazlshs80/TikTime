@@ -17,6 +17,7 @@ namespace TikTime.MauiApp
             Routing.RegisterRoute(nameof(AddNobatPage), typeof(AddNobatPage));
             Routing.RegisterRoute(nameof(ListNobatPage), typeof(ListNobatPage));
             Routing.RegisterRoute(nameof(MVVM.View.Main.MainPage), typeof(MainPage));
+            Routing.RegisterRoute(nameof(MVVM.View.Main.NotificationPage), typeof(NotificationPage));
 
             MainPage = new AppShell();
         }
