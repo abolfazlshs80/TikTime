@@ -75,4 +75,10 @@
         Title="ListNobatPage"
         Route="ListNobatPage"
         ContentTemplate="{DataTemplate nobats:ListNobatPage}" />
+
+
+    <ShellContent 
+        Title="NotificationPage"
+        Route="NotificationPage"
+        ContentTemplate="{DataTemplate main:NotificationPage}" />
 </Shell>
