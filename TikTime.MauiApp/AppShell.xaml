@@ -9,7 +9,7 @@
     xmlns:customer="clr-namespace:TikTime.MauiApp.MVVM.View.Customer"
     xmlns:nobats="clr-namespace:TikTime.MauiApp.MVVM.View.Nobats"
     Shell.FlyoutBehavior="Disabled"
-    Shell.FlowDirection="RightToLeft"
+   FlowDirection="RightToLeft"
     Title="TikTime.MauiApp">
     <!--<TabBar>
         <ShellContent Title="خانه" Icon="home.png" ContentTemplate="{DataTemplate main:MainPage}" />
