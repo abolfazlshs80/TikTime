@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MauiPersianToolkit.Controls;assembly=MauiPersianToolkit"
              x:Class="TikTime.MauiApp.MVVM.View.Nobats.ListNobatPage"
@@ -10,9 +10,9 @@
     <ScrollView>
         <VerticalStackLayout Spacing="10" Padding="15">
 
-            <!-- Appointment Item 1 -->
+            --><!-- Appointment Item 1 -->
 
-            <!-- Time Selection for Item 1 -->
+            <!-- Time Selection for Item 1 --><!--
 
             <CollectionView ItemsSource="{Binding AppointmentDays}" x:Name="AppointmentDays">
                 <CollectionView.ItemTemplate>
@@ -28,7 +28,7 @@
                                 </Frame.Background>
 
                                 <Grid ColumnDefinitions="Auto,*,Auto,Auto" Padding="15">
-                                    <!-- Plus Icon -->
+                                    --><!-- Plus Icon --><!--
                                     <Frame Grid.Column="0"
                  BackgroundColor="Transparent"
                  BorderColor="White"
@@ -50,7 +50,7 @@
                                         </Label>
                                     </Frame>
 
-                                    <!-- Center Content -->
+                                    --><!-- Center Content --><!--
                                     <StackLayout Grid.Column="1" 
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -67,7 +67,7 @@
                      FlowDirection="RightToLeft"/>
                                     </StackLayout>
 
-                                    <!-- Date -->
+                                    --><!-- Date --><!--
                                     <Label Grid.Column="2"
                  Text="{Binding Day}"
                  TextColor="White"
@@ -76,7 +76,7 @@
                  VerticalOptions="Center"
                  Margin="0,0,10,0"/>
 
-                                    <!-- Month -->
+                                    --><!-- Month --><!--
                                     <StackLayout Grid.Column="3" VerticalOptions="Center">
                                         <Label Text="{Binding Month}"
                      TextColor="White"
@@ -159,8 +159,432 @@
                 </VerticalStackLayout>
 
             </Frame>
+
+            <StackLayout>
+                <Button Text="باز/بستن منو" Clicked="ToggleMenu"/>
+                --><!-- محتوای اصلی ادامه دارد --><!--
+            </StackLayout>
+
+            --><!-- منوی کشویی --><!--
+            <Frame x:Name="DropdownPanel"
+                   BackgroundColor="#eeeeee"
+                   CornerRadius="10"
+                   Padding="10"
+                   TranslationY="-200"
+                   HeightRequest="120"
+                 
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Start"
+                   HasShadow="True">
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="15">
+                    <Button Text="ثبت نوبت" />
+                    <Button Text="تقویم" />
+                    <Button Text="در یک نگاه" />
+                    <Button Text="تنظیمات" />
+                </StackLayout>
+            </Frame>
         </VerticalStackLayout>
 
 
     </ScrollView>
+</ContentPage>-->
+
+
+
+<ContentPage     x:Class="TikTime.MauiApp.MVVM.View.Nobats.ListNobatPage"
+                 xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 Title="مدیریت نوبت"
+                 BackgroundColor="#F0F0F0"
+                 Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Green Status Bar -->
+        <Grid Grid.Row="0" BackgroundColor="#4CAF50" Padding="16,10" HeightRequest="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Text="●●●● Irancell LTE" TextColor="White" FontSize="14" VerticalOptions="Center" />
+            <Label Grid.Column="1" Text="9:12 AM" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+            <StackLayout Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center">
+                <Label Text="🔒 41%" TextColor="White" FontSize="14" />
+                <Label Text="⚡🔋" TextColor="White" FontSize="14" />
+            </StackLayout>
+        </Grid>
+
+        <!-- Header with Tabs -->
+        <Grid Grid.Row="1" BackgroundColor="#333333" Padding="16,20,16,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Back Button -->
+            <Button Grid.Column="0" 
+                    Text="&#x2190;" 
+                    FontSize="24" 
+                    TextColor="White" 
+                    BackgroundColor="Transparent" 
+                    WidthRequest="40" 
+                    HeightRequest="40"
+                    Clicked="OnBackClicked" />
+
+            <!-- Tab Buttons -->
+            <Frame Grid.Column="1" BackgroundColor="White" CornerRadius="20" Padding="0" HasShadow="False" Margin="10,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Simple Tab -->
+                    <Button Grid.Column="0" 
+                            Text="ساده" 
+                            FontSize="14" 
+                            TextColor="Black" 
+                            BackgroundColor="White" 
+                            CornerRadius="20"
+                            Clicked="OnSimpleTabClicked" />
+
+                    <!-- Advanced Tab -->
+                    <Button Grid.Column="1" 
+                            Text="پیشرفته + آنلاین" 
+                            FontSize="14" 
+                            TextColor="White" 
+                            BackgroundColor="#8A2BE2" 
+                            CornerRadius="20"
+                            Clicked="OnAdvancedTabClicked" />
+                </Grid>
+            </Frame>
+
+            <!-- Menu Button -->
+            <Button Grid.Column="2" 
+                    Text="&#x2630;" 
+                    FontSize="20" 
+                    TextColor="White" 
+                    BackgroundColor="Transparent" 
+                    WidthRequest="40" 
+                    HeightRequest="40"
+                    Clicked="OnMenuClicked" />
+        </Grid>
+
+        <!-- Action Buttons -->
+        <Grid Grid.Row="2" Margin="16,10" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Settings -->
+            <Frame Grid.Column="0" BackgroundColor="White" CornerRadius="15" Padding="12" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent">
+              
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                            <Label Text="⚙️" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="تنظیمات" FontSize="12" TextColor="Black" HorizontalOptions="Center" />
+                        </StackLayout>
+                   
+                </StackLayout>
+            </Frame>
+
+            <!-- At a Glance -->
+            <Frame Grid.Column="1" BackgroundColor="White" CornerRadius="15" Padding="12" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent">
+               
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                            <Label Text="☰" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="در یک نگاه" FontSize="12" TextColor="Black" HorizontalOptions="Center" />
+                        </StackLayout>
+                   
+                </StackLayout>
+            </Frame>
+
+            <!-- Calendar -->
+            <Frame Grid.Column="2" BackgroundColor="White" CornerRadius="15" Padding="12" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent" >
+                 
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                            <Label Text="📅" FontSize="24" HorizontalOptions="Center" />
+                            <Label Text="تقویم" FontSize="12" TextColor="Black" HorizontalOptions="Center" />
+                        </StackLayout>
+                   
+                </StackLayout>
+            </Frame>
+
+            <!-- Book Appointment -->
+            <Frame Grid.Column="3" BackgroundColor="White" CornerRadius="15" Padding="12" HasShadow="True" HeightRequest="80">
+                <StackLayout BackgroundColor="Transparent" >
+                  
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="6">
+                            <Label Text="+" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                            <Label Text="ثبت نوبت" FontSize="12" TextColor="Black" HorizontalOptions="Center" />
+                        </StackLayout>
+               
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="3" Padding="16">
+            <StackLayout Spacing="16">
+
+                <!-- Statistics Card 1 -->
+                <Frame CornerRadius="20" Padding="0" HasShadow="True" HeightRequest="80">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#2D1B69" Offset="0.0" />
+                            <GradientStop Color="#8A2BE2" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+
+                    <Grid Padding="16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Add Button -->
+                        <Frame Grid.Column="0" BackgroundColor="#8A2BE2" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
+                            <Label Text="+" FontSize="20" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+
+                        <!-- Total -->
+                        <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="۰" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                            <Label Text="نومان (جمع کل)" FontSize="10" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+
+                        <!-- Date -->
+                        <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="۲۶" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                            <Label Text="خرداد" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+
+                        <!-- Month -->
+                        <Label Grid.Column="3" Text="خرداد" FontSize="14" TextColor="White" VerticalOptions="Center" Rotation="90" />
+                    </Grid>
+                </Frame>
+
+                <!-- Service Section -->
+                <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Expand Button -->
+                        <Button Grid.Column="0" Text="^" FontSize="16" TextColor="Gray" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" />
+
+                        <!-- Service Info -->
+                        <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End">
+                            <Label Text="یدی" FontSize="16" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End" />
+                            <Label Text="خدمت یک" FontSize="14" TextColor="Gray" HorizontalOptions="End" />
+                        </StackLayout>
+
+                        <!-- Timer -->
+                        <Label Grid.Column="2" Text="00:10" FontSize="24" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <!-- Form Fields -->
+                <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
+                    <StackLayout Spacing="16">
+                        <!-- Amount and Customer -->
+                        <Frame BackgroundColor="Gray" CornerRadius="15" Padding="5" HasShadow="True" >
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width=".3*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="2" VerticalOptions="Center">
+                                    <Label Text="مبلغ" FontSize="14" TextColor="Black" HorizontalOptions="End" />
+
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                    <Label Text="1000" FontSize="14" TextColor="Black" HorizontalOptions="End" />
+                                   
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="0" Margin="16,0,0,0">
+                                    <Label Text="نومان" FontSize="14" TextColor="Black" HorizontalOptions="End" />
+                               
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                      
+
+                        <!-- Description -->
+                        <StackLayout>
+                            <Label Text="توضیحات" FontSize="14" TextColor="Black" HorizontalOptions="End" />
+                            <Editor Placeholder="" BackgroundColor="#F5F5F5" HeightRequest="80" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Action Buttons -->
+                <Frame BackgroundColor="White" CornerRadius="15" Padding="16" HasShadow="True">
+                    <Grid ColumnSpacing="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Customer File -->
+                        <StackLayout Grid.Column="0" BackgroundColor="Transparent" >
+                            
+                                <StackLayout HorizontalOptions="Center" Spacing="4">
+                                    <Frame BackgroundColor="#FFB6C1" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
+                                        <Label Text="!" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <Label Text="پرونده" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="مشتری" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                </StackLayout>
+                            
+                        </StackLayout>
+
+                        <!-- Cancel -->
+                        <StackLayout Grid.Column="1" BackgroundColor="Transparent" >
+                            
+                                <StackLayout HorizontalOptions="Center" Spacing="4">
+                                    <Label Text="✕" FontSize="20" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="کنسل" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="شود" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                </StackLayout>
+                            
+                        </StackLayout>
+
+                        <!-- Satisfaction -->
+                        <StackLayout Grid.Column="2" BackgroundColor="Transparent" >
+                            
+                                <StackLayout HorizontalOptions="Center" Spacing="4">
+                                    <Label Text="😊" FontSize="20" HorizontalOptions="Center" />
+                                    <Label Text="رضایت" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="سنجی" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                </StackLayout>
+                            
+                        </StackLayout>
+
+                        <!-- Edit -->
+                        <StackLayout Grid.Column="3" BackgroundColor="Transparent" >
+                            
+                                <StackLayout HorizontalOptions="Center" Spacing="4">
+                                    <Label Text="✏️" FontSize="18" HorizontalOptions="Center" />
+                                    <Label Text="ویرایش" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="نوبت" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                </StackLayout>
+                            
+                        </StackLayout>
+
+                        <!-- Contact -->
+                        <StackLayout Grid.Column="4" BackgroundColor="Transparent" >
+                            
+                                <StackLayout HorizontalOptions="Center" Spacing="4">
+                                    <Label Text="📞" FontSize="18" HorizontalOptions="Center" />
+                                    <Label Text="ارتباط با" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                    <Label Text="مشتری" FontSize="10" TextColor="Black" HorizontalOptions="Center" />
+                                </StackLayout>
+                            
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Statistics Card 2 -->
+                <Frame CornerRadius="20" Padding="0" HasShadow="True" HeightRequest="80">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#2D1B69" Offset="0.0" />
+                            <GradientStop Color="#8A2BE2" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+
+                    <Grid Padding="16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Add Button -->
+                        <Frame Grid.Column="0" BackgroundColor="#8A2BE2" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
+                            <Label Text="+" FontSize="20" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+
+                        <!-- Total -->
+                        <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="۰" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                            <Label Text="نومان (جمع کل)" FontSize="10" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+
+                        <!-- Date -->
+                        <StackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label Text="۲۷" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                            <Label Text="خرداد" FontSize="12" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+
+                        <!-- Month -->
+                        <Label Grid.Column="3" Text="خرداد" FontSize="14" TextColor="White" VerticalOptions="Center" Rotation="90" />
+                    </Grid>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <Frame Grid.Row="4" BackgroundColor="White" CornerRadius="0" HasShadow="True" Padding="0" HeightRequest="80">
+            <Grid Padding="10,10,10,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Settings -->
+                <Button Grid.Column="0" Text="⚙️" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnBottomSettingsClicked" />
+
+                <!-- List -->
+                <Button Grid.Column="1" Text="☰" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnListClicked" />
+
+                <!-- Add (Center) -->
+                <StackLayout Grid.Column="2" BackgroundColor="Transparent" >
+            
+                        <Frame BackgroundColor="Transparent" BorderColor="Black" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False">
+                            <Label Text="+" FontSize="20" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                
+                </StackLayout>
+
+                <!-- Search -->
+                <Button Grid.Column="3" Text="🔍" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnSearchClicked" />
+
+                <!-- Home -->
+                <Button Grid.Column="4" Text="🏠" FontSize="24" TextColor="Black" BackgroundColor="Transparent" Clicked="OnHomeClicked" />
+            </Grid>
+        </Frame>
+    </Grid>
 </ContentPage>
