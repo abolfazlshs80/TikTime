@@ -5,6 +5,7 @@
         public AppShell()
         {
             InitializeComponent();
+            this.FlowDirection = FlowDirection.RightToLeft;
         }
     }
 }
