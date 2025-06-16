@@ -16,7 +16,7 @@ public partial class EditCustomerPage : ContentPage
         model.CustomerId = CustomerId;
         model.LoadCustomer();
         BindingContext = model;
-
+     
 
     }
 
@@ -69,23 +69,23 @@ public partial class EditCustomerPage : ContentPage
     {
         await Shell.Current.GoToAsync("//MainPage");
     }
-    //private void JobPicker_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    if (BindingContext is EditCustomerViewModel vm)
-    //    {
-    //        if (JobPicker.SelectedItem is CustomerJob selectedJob)
-    //            vm.OnJobSelectedCommand?.Execute(selectedJob);
-    //    }
-    //}
+    private void JobPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (BindingContext is EditCustomerViewModel vm)
+        {
+            if (JobPicker.SelectedItem is CustomerJob selectedJob)
+                vm.OnJobSelectedCommand?.Execute(selectedJob);
+        }
+    }
 
-    //private void CustomerCategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    if (BindingContext is EditCustomerViewModel vm)
-    //    {
-    //        var selected = (CustomerCategory)CustomerCategoryPicker.SelectedItem;
-    //        vm.OnJobSelectedCommand?.Execute(selected);
-    //    }
-    //}
+    private void CustomerCategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (BindingContext is EditCustomerViewModel vm)
+        {
+            var selected = (CustomerCategory)CustomerCategoryPicker.SelectedItem;
+            vm.OnJobSelectedCommand?.Execute(selected);
+        }
+    }
 
     private void SocialMediaPlatformsPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -96,13 +96,13 @@ public partial class EditCustomerPage : ContentPage
         }
     }
 
-    //private void NobatButton_OnClicked(object? sender, EventArgs e)
-    //{
-    //    if (BindingContext is EditCustomerViewModel vm)
-    //    {
-    //        vm.OnNobatCommand?.Execute(new object());
-    //    }
-    //}
+    private void NobatButton_OnClicked(object? sender, EventArgs e)
+    {
+        if (BindingContext is EditCustomerViewModel vm)
+        {
+            vm.OnNobatCommand?.Execute(new object());
+        }
+    }
 }
 
 
