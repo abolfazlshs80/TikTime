@@ -64,7 +64,11 @@
                         <Frame Grid.Column="0" BackgroundColor="#E0E0E0" CornerRadius="15" Padding="12,8" HasShadow="False">
                             <StackLayout Orientation="Horizontal" Spacing="5">
                                 <Label Text="&#x276E;" FontSize="16" TextColor="Black" VerticalOptions="Center" />
-                                <Label Text="نوبت‌ها" FontSize="14" TextColor="Black" VerticalOptions="Center" />
+                                <Label Text="نوبت‌ها" FontSize="14" TextColor="Black" VerticalOptions="Center" >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="NobatButton_OnClicked"></TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </StackLayout>
                         </Frame>
 
