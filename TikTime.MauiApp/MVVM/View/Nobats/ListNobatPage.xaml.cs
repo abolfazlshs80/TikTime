@@ -14,7 +14,7 @@ public partial class ListNobatPage : ContentPage
         // Initialize sample data
       
         var model = new ListNobatViewModel(serviceProvider);
-        model.LoadData(DateTime.Now);
+        model.LoadData(DateTime.Now.AddDays(-20));
         BindingContext = model;
       
     }
@@ -63,12 +63,21 @@ public partial class ListNobatPage : ContentPage
     // Tab Handlers
     private async void OnSimpleTabClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("ساده", "حالت ساده انتخاب شد", "تایید");
+        SimpleButton.BackgroundColor = Colors.BlueViolet;
+        AdvancedButton.BackgroundColor = Colors.White;
+
+        AdvancedButton.TextColor = Colors.Black;
+        SimpleButton.TextColor = Colors.White;
+
     }
 
     private async void OnAdvancedTabClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("پیشرفته", "حالت پیشرفته + آنلاین انتخاب شد", "تایید");
+        AdvancedButton.BackgroundColor = Colors.BlueViolet;
+        SimpleButton.BackgroundColor = Colors.White;
+
+        AdvancedButton.TextColor = Colors.White;
+        SimpleButton.TextColor = Colors.Black;
     }
 
     // Top Action Handlers
