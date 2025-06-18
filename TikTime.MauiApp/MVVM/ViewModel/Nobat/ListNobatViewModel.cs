@@ -32,12 +32,12 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
 
         }
 
-        public async void LoadData( DateTime currentDate)
+        public async void LoadData(DateTime currentDate)
         {
             StartDate = currentDate.ToPersianDate();
             AppointmentDays.Clear();
-            Nobats = new List<Model.Nobat.Nobat>();
-            Nobats = await nobatService.GetAll();
+            Nobats = new ObservableCollection<Model.Nobat.Nobat>();
+            Nobats =new( await nobatService.GetAll());
 
             for (int i = currentDate.DayToShamsi(); i < 29; i++)
             {
@@ -50,7 +50,7 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
                 {
                     Month = PersianTools.GetPersianMonthName(currentDate.MonthToShamsi()),
                     Day = i,
-                    Nobats =new(Nobats.Where(_ => 
+                    Nobats = new(Nobats.Where(_ =>
                                                 int.Parse(_.StartDate.Split('/')[2]) == i &&
                                                int.Parse(_.StartDate.Split('/')[1]) == currentDate.MonthToShamsi() &&
                                                int.Parse(_.StartDate.Split('/')[0]) == currentDate.YearToShamsi())),
@@ -65,10 +65,17 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
             var a = date.ToString().ToMiladi();
             LoadData(a);
         });
+        public ICommand OnShowitems => new Command(async (nobat) =>
+        {
 
+            if (nobat is Model.Nobat.Nobat model)
+            {
+                model.ShowItems = !model.ShowItems;
+            }
+        });
 
         public string StartDate { get; set; }
         public ObservableCollection<AppointmentDay> AppointmentDays { get; set; } = new();
-        public IEnumerable<Model.Nobat.Nobat> Nobats { get; set; }
+        public ObservableCollection<Model.Nobat.Nobat> Nobats { get; set; } = new();
     }
 }
