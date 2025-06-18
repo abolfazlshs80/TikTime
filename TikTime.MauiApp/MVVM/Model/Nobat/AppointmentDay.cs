@@ -1,7 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using PropertyChanged;
+using System.Collections.ObjectModel;
 
 namespace TikTime.MauiApp.MVVM.Model.Nobat;
 
+[AddINotifyPropertyChangedInterface]
 public class AppointmentDay
 {
     public ObservableCollection<Nobat> Nobats { get; set; }
