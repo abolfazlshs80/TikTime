@@ -28,6 +28,9 @@
         <Tab Title="افزودن" Icon="icons8_add_tab">
             <ShellContent ContentTemplate="{DataTemplate main:AddPage}" />
         </Tab>
+        <Tab Title="جست و جو" Icon="icons8_settings_tab.svg">
+            <ShellContent ContentTemplate="{DataTemplate customer:SearchCustomerPage}" />
+        </Tab>
 
         <Tab Title="تنظیمات" Icon="icons8_settings_tab.svg">
             <ShellContent ContentTemplate="{DataTemplate main:SettingPage}" />
