@@ -65,6 +65,12 @@ namespace TikTime.MauiApp.Service
             return FakeDataService.Instance.Customers
                       .FirstOrDefault(u => u.Id.Equals(Id));
         }
+
+        public async Task<IEnumerable<Customer>> GetByText(string value)
+        {
+            return FakeDataService.Instance.Customers
+                .Where(u => u.Name.Contains(value));
+        }
     }
 
     public interface ICustomerService
@@ -75,6 +81,7 @@ namespace TikTime.MauiApp.Service
         Task<IEnumerable<Customer>> GetAll();
         Task<Customer> Get(int Id);
 
+        Task<IEnumerable<Customer>> GetByText(string value);
     }
 
 
