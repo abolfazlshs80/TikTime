@@ -1,22 +1,24 @@
-﻿using PropertyChanged;
+﻿using MauiPersianToolkit;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MauiPersianToolkit;
 using TikTime.MauiApp.MVVM.Model;
+using TikTime.MauiApp.MVVM.Model.Nobat;
 using TikTime.MauiApp.Service;
 using TikTime.MauiApp.Tools.Static;
 using TikTime.MauiApp.Tools.Static.ExtentionMethod;
-using TikTime.MauiApp.MVVM.Model.Nobat;
 
 namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
 {
     [AddINotifyPropertyChangedInterface]
-    public class ListNobatViewModel
+    public class ListNobatViewModel: INotifyPropertyChanged
     {
         private readonly IServiceProvider serviceProvider;
         private readonly ICustomerService customerService;
@@ -75,7 +77,23 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Nobat
         });
 
         public string StartDate { get; set; }
-        public ObservableCollection<AppointmentDay> AppointmentDays { get; set; } = new();
+        public ObservableCollection<AppointmentDay> _appointmentDays { get; set; } = new();
+        public ObservableCollection<AppointmentDay> AppointmentDays
+        {
+            get { return _appointmentDays; }
+            set
+            {
+                _appointmentDays = value;
+                onPropertyChanged();
+            }
+        }
         public ObservableCollection<Model.Nobat.Nobat> Nobats { get; set; } = new();
+
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void onPropertyChanged([CallerMemberName] string Probname = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Probname));
+        }
     }
 }
