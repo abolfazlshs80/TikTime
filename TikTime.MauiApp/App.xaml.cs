@@ -16,6 +16,7 @@ namespace TikTime.MauiApp
             Routing.RegisterRoute(nameof(CustomCalenderPage), typeof(CustomCalenderPage));
             Routing.RegisterRoute(nameof(AddNobatPage), typeof(AddNobatPage));
             Routing.RegisterRoute(nameof(ListNobatPage), typeof(ListNobatPage));
+            Routing.RegisterRoute(nameof(SearchCustomerPage), typeof(SearchCustomerPage));
             Routing.RegisterRoute(nameof(MVVM.View.Main.MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(MVVM.View.Main.NotificationPage), typeof(NotificationPage));
 
