@@ -10,6 +10,7 @@ using TikTime.MauiApp.MVVM.View.Main;
 using TikTime.MauiApp.MVVM.View.Nobats;
 using TikTime.MauiApp.Service;
 
+
 namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
 {
    public static class InjectServiceExtention
