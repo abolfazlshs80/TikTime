@@ -49,6 +49,13 @@
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
                         <Label Text="🔍" FontSize="24" TextColor="Black" HorizontalOptions="Center" />
                         <Label Text="جستجو" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+
+
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OrderCustomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
 
                 </StackLayout>
@@ -61,6 +68,11 @@
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
                         <Label Text="↓" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
                         <Label Text="مرتب‌سازی" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OrderSelectCustomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
 
                 </StackLayout>
@@ -74,8 +86,13 @@
                         <Label Text="+" FontSize="24" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
                         <Label Text="افزودن" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
                     </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CreateCustomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
 
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
+
+
             </Frame>
         </Grid>
 
@@ -84,7 +101,7 @@
             <StackLayout x:Name="CustomerListContainer" Spacing="10">
 
                 <!-- Customer 1: Ali -->
-              
+
 
                 <CollectionView ItemsSource="{Binding Customers}" x:Name="MyCollectionView">
                     <CollectionView.ItemTemplate>

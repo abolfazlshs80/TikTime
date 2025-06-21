@@ -69,4 +69,19 @@ public partial class ListCustomerPage : ContentPage
     {
         await Shell.Current.GoToAsync("//MainPage");
     }
+
+    private async void CreateCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("//AddCustomerPage");
+    }
+
+    private void OrderCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    private async void OrderSelectCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("AddCustomerPage");
+    }
 }
