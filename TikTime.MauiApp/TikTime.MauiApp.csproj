@@ -74,6 +74,9 @@
 	  <Compile Update="MVVM\View\Customer\AddCustomerDialog.xaml.cs">
 	    <DependentUpon>AddCustomerDialog.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="MVVM\View\Customer\SelectOrderPage.xaml.cs">
+	    <DependentUpon>SelectOrderPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MVVM\View\Customer\SearchCustomerPage.xaml.cs">
 	    <DependentUpon>SearchCustomerPage.xaml</DependentUpon>
 	  </Compile>
@@ -93,6 +96,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\View\Customer\AddCustomerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MVVM\View\Customer\SelectOrderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MVVM\View\Customer\EditCustomerPage.xaml">
