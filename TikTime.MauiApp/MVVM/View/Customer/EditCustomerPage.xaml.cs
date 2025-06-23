@@ -103,6 +103,21 @@ public partial class EditCustomerPage : ContentPage
             vm.OnNobatCommand?.Execute(new object());
         }
     }
+
+    private void RemvoeCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+
+
+        throw new NotImplementedException();
+    }
+
+    private void NobatTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        if (BindingContext is EditCustomerViewModel vm)
+        {
+            vm.OnNobatCommand?.Execute(new object());
+        }
+    }
 }
 
 

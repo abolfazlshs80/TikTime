@@ -226,6 +226,11 @@
                                 <Label Text="حذف" FontSize="12" TextColor="White" HorizontalOptions="Center" />
                             </StackLayout>
 
+
+                            <StackLayout.GestureRecognizers>
+
+                                <TapGestureRecognizer Tapped="RemvoeCustomerTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
 
                         <!-- Edit -->
@@ -249,6 +254,10 @@
                                 <Label Text="ثبت نوبت" FontSize="12" TextColor="White" HorizontalOptions="Center" />
                             </StackLayout>
 
+                            <StackLayout.GestureRecognizers>
+
+                                <TapGestureRecognizer Tapped="NobatTapGestureRecognizer_OnTapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
 
                         <!-- Contact -->
