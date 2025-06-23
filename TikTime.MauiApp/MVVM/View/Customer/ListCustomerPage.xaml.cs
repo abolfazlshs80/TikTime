@@ -2,6 +2,8 @@
 using MauiPersianToolkit.Models;
 using MauiPersianToolkit.Services.Dialog;
 using System.Collections.ObjectModel;
+using TikTime.MauiApp.MVVM.Model;
+using TikTime.MauiApp.MVVM.Model.Enums;
 using TikTime.MauiApp.MVVM.ViewModel.Customer;
 using TikTime.MauiApp.Service;
 
@@ -27,7 +29,7 @@ public partial class ListCustomerPage : ContentPage
         await Shell.Current.GoToAsync($"AddCustomerPage");
     }
 
-   
+
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
@@ -64,7 +66,7 @@ public partial class ListCustomerPage : ContentPage
         DisplayAlert("Settings", "Settings clicked", "OK");
     }
 
- 
+
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//MainPage");
@@ -82,6 +84,21 @@ public partial class ListCustomerPage : ContentPage
 
     private async void OrderSelectCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync("AddCustomerPage");
+        await Shell.Current.GoToAsync("SelectOrderPage");
+        await Task.WhenAll();
+
+
+
+        if (NavigationDataStore.Instance.Parameter is OrderCustomerType type)
+        {
+            if (BindingContext is ListCustomerViewModel vm)
+            {
+                vm.OrderCustomer?.Execute(type);
+
+                await DisplayAlert("jjs", "das", "a");
+            }
+        }
+
+
     }
 }
