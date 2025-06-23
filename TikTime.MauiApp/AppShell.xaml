@@ -80,7 +80,10 @@
         Route="ListNobatPage"
         ContentTemplate="{DataTemplate nobats:ListNobatPage}" />
 
-
+    <ShellContent 
+        Title="SelectOrderPage"
+        Route="SelectOrderPage"
+        ContentTemplate="{DataTemplate customer:SelectOrderPage}" />
     <ShellContent 
         Title="NotificationPage"
         Route="NotificationPage"
