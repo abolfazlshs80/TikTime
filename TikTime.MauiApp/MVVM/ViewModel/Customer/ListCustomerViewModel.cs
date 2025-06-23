@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TikTime.MauiApp.MVVM.Model;
+using TikTime.MauiApp.MVVM.Model.Enums;
 using TikTime.MauiApp.Service;
 
 namespace TikTime.MauiApp.MVVM.ViewModel.Customer
@@ -73,9 +74,22 @@ namespace TikTime.MauiApp.MVVM.ViewModel.Customer
 
         #endregion
 
-     
+        public ICommand OrderCustomer => new Command(async (type) =>
+        {
 
-   
-    
+            var model=Enum.Parse<OrderCustomerType>(type.ToString());
+            Customers.Clear();
+            Customers = new ObservableCollection<Model.Customer.Customer>(await _customerService.GetAll(model));
+            //if (!Customers.Any())
+            //    Customers.AddRange(_customerService.GetAll().Result);
+
+        });
+
+        #region Order
+
+
+
+        #endregion
+
     }
 }
