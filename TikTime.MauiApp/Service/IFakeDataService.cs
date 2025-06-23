@@ -19,6 +19,8 @@ namespace TikTime.MauiApp.Service
     {
         private FakeDataService()
         {
+            GroupsCustomer = new List<string>() { "گروه مشتریان", "همکاران", "کارکنان", "بستگان", "سازمانی" };
+            Ref = new List<string>() { "سایر", "اینترنت", "اشنایان", "تلگرام", "گوگل" };
             Users = new List<User>()
             {
                 new User() { UserName = "09389114506", Password = "123" },
@@ -73,6 +75,8 @@ namespace TikTime.MauiApp.Service
         public List<MVVM.Model.Nobat.Nobat> Nobat;
 
         public List<Customer> Customers;
+        public List<string> GroupsCustomer;
+        public List<string> Ref;
     }
 }
 
