@@ -21,7 +21,7 @@
 
                 <Button Text=" جدید ترین" 
                         x:Name="AddCustomerButton"
-                        Clicked="AddCustomerButton_OnClicked"
+                        Clicked="LastCustomerButton_OnClicked"
                         HorizontalOptions="Fill"
                         ImageSource="person_icon.png"
                         ContentLayout="Left,10"
@@ -30,6 +30,7 @@
                         HorizontalOptions="Fill"
                         ImageSource="person_icon.png"
                         ContentLayout="Left,10"
+                        Clicked="OldButton_OnClicked"
                 />
                
             </VerticalStackLayout>
