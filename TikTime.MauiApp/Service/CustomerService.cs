@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TikTime.MauiApp.MVVM.Model.Customer;
+using TikTime.MauiApp.MVVM.Model.Enums;
 
 namespace TikTime.MauiApp.Service
 {
@@ -54,6 +55,22 @@ namespace TikTime.MauiApp.Service
                 FakeDataService.Instance.Customers.Remove(FindCustomer);
             return true;
         }
+        public async Task<IEnumerable<Customer>> GetAll(OrderCustomerType type)
+        {
+            switch (type)
+            {
+                case OrderCustomerType.Last:
+                    return FakeDataService.Instance.Customers.OrderBy(a => a.Id);
+                    break;
+
+
+                case OrderCustomerType.Old:
+                    return FakeDataService.Instance.Customers.OrderByDescending(a => a.Id);
+                    break;
+            }
+
+            return await GetAll();
+        }
 
         public async Task<IEnumerable<Customer>> GetAll()
         {
@@ -75,6 +92,7 @@ namespace TikTime.MauiApp.Service
 
     public interface ICustomerService
     {
+        Task<IEnumerable<Customer>> GetAll(OrderCustomerType type);
         Task<bool> Add(Customer model);
         Task<bool> Update(Customer model);
         Task<bool> Remove(int Id);
