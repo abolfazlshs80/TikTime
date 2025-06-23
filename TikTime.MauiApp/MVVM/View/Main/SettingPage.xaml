@@ -1,12 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            FlowDirection="RightToLeft"
              x:Class="TikTime.MauiApp.MVVM.View.Main.SettingPage"
              Title="SettingPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI! setting"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Margin="10,0">
+
+            <Label Text="با پیامک شبانه ساعت 12 شب به شما یادآوری میکنیم که فردا ساعت چند نوبت دارید"></Label>
+
+            <Frame BackgroundColor="{StaticResource Gray100}" CornerRadius="15">
+                <Grid ColumnDefinitions="*,*,3*" VerticalOptions="Center">
+                    <Label Grid.Column="0" VerticalOptions="Center" Text="پیامک شبانه"></Label>
+
+                    <Frame Grid.Column="1" BackgroundColor="Cyan" CornerRadius="15">
+                        <Label Text="فعال"></Label>
+                    </Frame>
+
+                    <Switch VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2"  ></Switch>
+                </Grid>
+
+            </Frame>
+
+            <Label Text="برسی تنظیم بودن زمان دستگاه"></Label>
+
+            <Button BackgroundColor="{StaticResource Gray100}" Text="چک کردن زمان " TextColor="Black"></Button>
+
+            <Label Text="تعیین ناحیه زمانی"></Label>
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+
+                <Picker  BackgroundColor="Red" >
+                    <Picker.Items>
+                        <x:String>ss</x:String>
+                        <x:String>ss</x:String>
+                        <x:String>ss</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+
+
+
+            <Label Text="مدیریت لیست ها"></Label>
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+
+                <Picker x:Name="PickerGroupCustomer"  BackgroundColor="Red"  ItemsSource="{Binding GroupsCustomer}">
+                   
+                </Picker>
+            </Frame>
+            <Frame BackgroundColor="White" Margin="0,10"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+
+                <Picker x:Name="PickerRef"  BackgroundColor="Red" ItemsSource="{Binding Ref}" >
+                   
+                </Picker>
+            </Frame>
+
+
+
+            <Label Text="حذف اکانت"></Label>
+            <Button BackgroundColor="{StaticResource Gray100}" Margin="0,10"  TextColor="Black" Text="حذف اکانت"></Button>
+            <Button BackgroundColor="{StaticResource Gray100}"  TextColor="Black" Text="پاک کردن کش"></Button>
+</VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
