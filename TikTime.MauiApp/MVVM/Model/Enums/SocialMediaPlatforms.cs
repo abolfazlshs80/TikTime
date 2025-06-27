@@ -25,6 +25,7 @@ namespace TikTime.MauiApp.MVVM.Model.Enums
             {
                 SocialMediaPlatforms.Instagram => "اینستاگرام",
                 SocialMediaPlatforms.Google => "گوگل",
+
                 SocialMediaPlatforms.ContactsAndFriends => "معرفی دوستان و آشنایان",
                 SocialMediaPlatforms.MessagingApps => "تبلیغات پیامکی",
                 SocialMediaPlatforms.Notifications => "ترافیک تبلیغاتی",
