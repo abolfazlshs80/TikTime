@@ -25,7 +25,7 @@ namespace TikTime.MauiApp.MVVM.Model.Enums
             {
                 SocialMediaPlatforms.Instagram => "اینستاگرام",
                 SocialMediaPlatforms.Google => "گوگل",
-
+                
                 SocialMediaPlatforms.ContactsAndFriends => "معرفی دوستان و آشنایان",
                 SocialMediaPlatforms.MessagingApps => "تبلیغات پیامکی",
                 SocialMediaPlatforms.Notifications => "ترافیک تبلیغاتی",
@@ -38,8 +38,12 @@ namespace TikTime.MauiApp.MVVM.Model.Enums
 
     public class SocialMediaPlatformsToTextConverter : IValueConverter
     {
+        
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+     
+            
+
             if (value is SocialMediaPlatforms mediaPlatforms)
                 return mediaPlatforms.ToDisplayName();
             return "سایر";

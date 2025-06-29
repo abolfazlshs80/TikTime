@@ -8,10 +8,12 @@ namespace TikTime.MauiApp.MVVM.Model.Service
 {
  public    class Service
     {
+        
         public int Id { get; set; }
         public string Name { get; set; }
         public override string ToString()
         {
+            
             return Name;
         }
     }
