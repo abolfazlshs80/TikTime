@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using TikTime.MauiApp.MVVM.ViewModel.Nottifications;
 
 namespace TikTime.MauiApp.MVVM.View.Main;
 
@@ -6,37 +7,23 @@ namespace TikTime.MauiApp.MVVM.View.Main;
 
 public partial class NotificationPage : ContentPage
 {
-    public ObservableCollection<Notification> Notifications { get; set; }
-
-    public NotificationPage()
+   
+    public NotificationPage(IServiceProvider serviceProvider)
     {
         InitializeComponent();
-        LoadNotifications();
+        BindingContext = new ListNottificationViewModel(serviceProvider);
+    
     }
 
-    private void LoadNotifications()
-    {
-        Notifications = new ObservableCollection<Notification>
-        {
-            new Notification
-            {
-                Title = "سیستم",
-                Message = "ورود جدید به حساب کاربری",
-                DeviceInfo = "Chrome :اطلاعات دستگاه",
-                TimeAgo = "۲ هفته پیش"
-            },
-            new Notification
-            {
-                Title = "سیستم",
-                Message = "ورود جدید به حساب کاربری",
-                DeviceInfo = "iPhone :اطلاعات دستگاه",
-                TimeAgo = "۴ هفته پیش"
-            }
-        };
-    }
 
     private async void OnBackClicked(object sender, EventArgs e)
     {
+        //string phoneNumber = "989123456789"; // شماره بدون ۰ و با کد کشور
+        //string message = Uri.EscapeDataString("سلام، این پیام تستی است");
+        //string url = $"https://wa.me/{phoneNumber}?text={message}";
+
+        //await Launcher.Default.OpenAsync(url);
+
         await Shell.Current.GoToAsync("..");
     }
 
@@ -84,12 +71,4 @@ public partial class NotificationPage : ContentPage
     {
         await Shell.Current.GoToAsync("//MainPage");
     }
-}
-
-public class Notification
-{
-    public string Title { get; set; } = string.Empty;
-    public string Message { get; set; } = string.Empty;
-    public string DeviceInfo { get; set; } = string.Empty;
-    public string TimeAgo { get; set; } = string.Empty;
 }

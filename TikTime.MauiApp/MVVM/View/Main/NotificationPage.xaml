@@ -23,120 +23,100 @@
         <!-- Header -->
 
         <!-- Feature Cards -->
-        <Grid Grid.Row="2" Margin="16,10" ColumnSpacing="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
 
-            <!-- Satisfaction Survey Card -->
-            <Frame Grid.Column="0" BackgroundColor="White" CornerRadius="20" Padding="16" HasShadow="True" HeightRequest="120">
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" Padding="10">
-                    <Label Text="😊" FontSize="32" HorizontalOptions="Center" />
-                    <Label Text="رضایت‌سنجی" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
-                </StackLayout>
-            </Frame>
+        <ScrollView Orientation="Horizontal">
+            <HorizontalStackLayout Spacing="5">
+                <Frame Grid.Column="0" BackgroundColor="White" CornerRadius="20" Padding="16" HasShadow="True" WidthRequest="120" HeightRequest="120">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10" Padding="10">
+                        <Label Text="😊" FontSize="32" HorizontalOptions="Center" />
+                        <Label Text="رضایت‌سنجی" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
 
-            <!-- Online Reservation Card -->
-            <Frame Grid.Column="1" BackgroundColor="White" CornerRadius="20" Padding="16" HasShadow="True" HeightRequest="120">
-                <StackLayout BackgroundColor="Transparent">
-                    
+
+                <!-- Online Reservation Card -->
+                <Frame Grid.Column="1" BackgroundColor="White" CornerRadius="20" Padding="16" HasShadow="True" WidthRequest="120" HeightRequest="120">
+                    <StackLayout BackgroundColor="Transparent">
+
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
                             <Label Text="📖" FontSize="32" HorizontalOptions="Center" />
                             <Label Text="رزرو آنلاین" FontSize="14" TextColor="Black" HorizontalOptions="Center" />
                         </StackLayout>
-                   
-                </StackLayout>
-            </Frame>
 
-            <!-- All Notifications Card -->
-            <Frame Grid.Column="2" BackgroundColor="#E6E6FA" CornerRadius="20" Padding="16" HasShadow="True" HeightRequest="120">
-                <StackLayout BackgroundColor="Transparent" >
-               
+                    </StackLayout>
+                </Frame>
+
+                <!-- All Notifications Card -->
+                <Frame Grid.Column="2" BackgroundColor="#E6E6FA" CornerRadius="20" Padding="16" HasShadow="True" WidthRequest="120" HeightRequest="120">
+                    <StackLayout BackgroundColor="Transparent" >
+
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
                             <Label Text="🔔" FontSize="32" TextColor="#8A2BE2" HorizontalOptions="Center" />
                             <Label Text="همه" FontSize="14" TextColor="#8A2BE2" FontAttributes="Bold" HorizontalOptions="Center" />
                         </StackLayout>
-                
-                </StackLayout>
-            </Frame>
-        </Grid>
+
+                    </StackLayout>
+                </Frame>
+
+
+            </HorizontalStackLayout>
+
+        </ScrollView>
+        <!-- Satisfaction Survey Card -->
+
+
 
         <!-- Notifications List -->
         <ScrollView Grid.Row="3" Padding="16,10">
             <StackLayout x:Name="NotificationsContainer" Spacing="0">
 
-                <!-- Chrome Login Notification -->
-                <Grid Padding="16" BackgroundColor="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
 
-                    <!-- Left Arrow -->
-                    <Frame Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#F0F0F0" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" VerticalOptions="Center">
-                        <Label Text="&#x276E;" FontSize="18" FontAttributes="Bold" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" />
-                    </Frame>
+                <CollectionView ItemsSource="{Binding NottificationCollectionView}" x:Name="NottificationCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
 
-                    <!-- Notification Content -->
-                    <StackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                            <Label Text="سیستم" FontSize="16" FontAttributes="Bold" TextColor="Black" />
-                            <Frame BackgroundColor="#F0F0F0" CornerRadius="15" WidthRequest="30" HeightRequest="30" Padding="0" HasShadow="False" Margin="10,0,0,0">
-                                <Label Text="⚙️" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
-                            </Frame>
-                        </StackLayout>
-                        <Label Text="ورود جدید به حساب کاربری" FontSize="14" TextColor="Black" HorizontalOptions="End" />
-                        <Label Text="Chrome :اطلاعات دستگاه" FontSize="12" TextColor="Gray" HorizontalOptions="End" />
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,5,0,0">
-                            <Label Text="۲ هفته پیش" FontSize="12" TextColor="Gray" />
-                            <Label Text="🕐" FontSize="12" TextColor="Gray" Margin="5,0,0,0" />
-                        </StackLayout>
-                    </StackLayout>
-                </Grid>
+                            <VerticalStackLayout>
+                                <!-- Chrome Login Notification -->
+                                <Grid Padding="16" BackgroundColor="White">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-                <!-- Separator Line -->
-                <BoxView BackgroundColor="#E0E0E0" HeightRequest="1" Margin="16,0" />
+                                    <!-- Left Arrow -->
+                                    <Frame Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#F0F0F0" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" VerticalOptions="Center">
+                                        <Label  Text="&#x276E;" FontSize="18" FontAttributes="Bold" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
 
-                <!-- iPhone Login Notification -->
-                <Grid Padding="16" BackgroundColor="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <!-- Left Arrow -->
-                    <Frame Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#F0F0F0" CornerRadius="20" WidthRequest="40" HeightRequest="40" Padding="0" HasShadow="False" VerticalOptions="Center">
-                        <Label Text="&#x276E;" FontSize="18" FontAttributes="Bold" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center" />
-                    </Frame>
-
-                    <!-- Notification Content -->
-                    <StackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                            <Label Text="سیستم" FontSize="16" FontAttributes="Bold" TextColor="Black" />
-                            <Frame BackgroundColor="#F0F0F0" CornerRadius="15" WidthRequest="30" HeightRequest="30" Padding="0" HasShadow="False" Margin="10,0,0,0">
-                                <Label Text="⚙️" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
-                            </Frame>
-                        </StackLayout>
-                        <Label Text="ورود جدید به حساب کاربری" FontSize="14" TextColor="Black" HorizontalOptions="End" />
-                        <Label Text="iPhone :اطلاعات دستگاه" FontSize="12" TextColor="Gray" HorizontalOptions="End" />
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,5,0,0">
-                            <Label Text="۴ هفته پیش" FontSize="12" TextColor="Gray" />
-                            <Label Text="🕐" FontSize="12" TextColor="Gray" Margin="5,0,0,0" />
-                        </StackLayout>
-                    </StackLayout>
-                </Grid>
+                                    <!-- Notification Content -->
+                                    <StackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                            <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" TextColor="Black" />
+                                            <Frame BackgroundColor="#F0F0F0" CornerRadius="15" WidthRequest="30" HeightRequest="30" Padding="0" HasShadow="False" Margin="10,0,0,0">
+                                                <Label Text="⚙️" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                        </StackLayout>
+                                        <Label Text="{Binding Message}" FontSize="14" TextColor="Black" HorizontalOptions="End" />
+                                        <!--<Label Text="Chrome :اطلاعات دستگاه" FontSize="12" TextColor="Gray" HorizontalOptions="End" />-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,5,0,0">
+                                            <Label Text="{Binding TimeAgo}" FontSize="12" TextColor="Gray" />
+                                            <Label Text="🕐" FontSize="12" TextColor="Gray" Margin="5,0,0,0" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                                <!-- Separator Line -->
+                                <BoxView BackgroundColor="#E0E0E0" HeightRequest="1" Margin="16,0" />
+                            </VerticalStackLayout>
+                   
+                      
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
             </StackLayout>
         </ScrollView>
