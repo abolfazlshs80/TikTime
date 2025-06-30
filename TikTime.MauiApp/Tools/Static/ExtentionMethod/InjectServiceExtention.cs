@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,8 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IServiceService, ServiceService>();
             services.AddScoped<INobatService, NobatService>();
+            services.AddScoped<INottificationService, NottificationService>();
+          
             services.AddSingleton<NavigationDataStore>();
 
 
@@ -45,7 +48,20 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
             services.AddTransient<AddNobatPage>();
             services.AddTransient<ListNobatPage>();
             services.AddTransient<SearchCustomerPage>();
+            services.AddTransient<NotificationPage>();
             // Add other services as needed
+            return services;
+        }
+        public static IServiceCollection RepConfigure(this IServiceCollection services)
+        {
+          //  services.AddScoped<INottificationRepository, NottificationRepository>();
+            return services;
+        }
+        public static IServiceCollection SqlConfigure(this IServiceCollection services)
+        {
+
+            services.AddSingleton(new SQLiteAsyncConnection(
+                Path.Combine(FileSystem.AppDataDirectory, "database.db3")));
             return services;
         }
     }
