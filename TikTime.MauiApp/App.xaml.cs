@@ -1,7 +1,9 @@
-﻿using TikTime.MauiApp.MVVM.View.Calender;
+﻿using Microsoft.Extensions.DependencyInjection;
+using TikTime.MauiApp.MVVM.View.Calender;
 using TikTime.MauiApp.MVVM.View.Customer;
 using TikTime.MauiApp.MVVM.View.Main;
 using TikTime.MauiApp.MVVM.View.Nobats;
+using TikTime.MauiApp.Service;
 
 namespace TikTime.MauiApp
 {
@@ -22,6 +24,8 @@ namespace TikTime.MauiApp
             Routing.RegisterRoute(nameof(MVVM.View.Main.NotificationPage), typeof(NotificationPage));
 
             MainPage = new AppShell();
+        
+
         }
     }
 }
