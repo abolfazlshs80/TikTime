@@ -8,6 +8,8 @@ namespace TikTime.MauiApp.Tools.Static
 {
     public class PersianTools
     {
+       
+
         public static string GetPersianMonthName(int month)
         {
             string[] persianMonths =
