@@ -4,6 +4,25 @@ namespace TikTime.MauiApp.Tools.Static.ExtentionMethod
 {
     public static class DateExtension
     {
+        public static string GetTimeAgo(this DateTime dateTime)
+        {
+            var timeSpan = DateTime.Now - dateTime;
+
+            if (timeSpan.TotalSeconds < 60)
+                return "چند لحظه پیش";
+            if (timeSpan.TotalMinutes < 60)
+                return $"{(int)timeSpan.TotalMinutes} دقیقه پیش";
+            if (timeSpan.TotalHours < 24)
+                return $"{(int)timeSpan.TotalHours} ساعت پیش";
+            if (timeSpan.TotalDays < 7)
+                return $"{(int)timeSpan.TotalDays} روز پیش";
+            if (timeSpan.TotalDays < 30)
+                return $"{(int)(timeSpan.TotalDays / 7)} هفته پیش";
+            if (timeSpan.TotalDays < 365)
+                return $"{(int)(timeSpan.TotalDays / 30)} ماه پیش";
+
+            return $"{(int)(timeSpan.TotalDays / 365)} سال پیش";
+        }
         public static string ToShamsi(this DateTime date)
         {
             var prCalender = new PersianCalendar();
