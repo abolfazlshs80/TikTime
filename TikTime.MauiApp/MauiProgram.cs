@@ -16,7 +16,10 @@ namespace TikTime.MauiApp
             builder.Services
 
                 .ConfigureServices()
-                .ConfigurePage();
+                .ConfigurePage()
+                .SqlConfigure()
+                .RepConfigure()
+                ;
 
             builder
                 .UseMauiApp<App>()
