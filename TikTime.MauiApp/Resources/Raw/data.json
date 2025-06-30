@@ -1,0 +1,148 @@
+{
+  "GroupsCustomer": [ "گروه مشتریان", "همکاران", "کارکنان", "بستگان", "سازمانی" ],
+  "Ref": [ "سایر", "اینترنت", "اشنایان", "تلگرام", "گوگل" ],
+  "Users": [
+    {
+      "UserName": "09389114506",
+      "Password": "123"
+    },
+    {
+      "UserName": "09389114505",
+      "Password": "123"
+    },
+    {
+      "UserName": "09389114504",
+      "Password": "123"
+    }
+  ],
+  "Services": [
+    {
+      "Id": 1,
+      "Name": "Service 1"
+    },
+    {
+      "Id": 2,
+      "Name": "Service 2"
+    },
+    {
+      "Id": 3,
+      "Name": "Service 3"
+    }
+  ],
+  "Customers": [
+    {
+      "Id": 1,
+      "Name": "abolfazl",
+      "Desc": "توضیحات",
+      "Phone": "09389114506",
+      "Date": "2025-06-30",
+      "CustomerCategory": 0,
+      "CustomerJob": 0,
+      "SocialMediaPlatforms":1
+    },
+    {
+      "Id": 2,
+      "Name": "mohsen",
+      "Desc": "توضیحات",
+      "Phone": "09389114206",
+      "Date": "2025-06-30",
+      "CustomerCategory": 0,
+      "CustomerJob": 0,
+      "SocialMediaPlatforms": 0
+    }
+  ],
+  "Nobat": [
+    {
+      "Id": 1,
+      "Desc": "Desc 1",
+      "StartDate": "1404/3/20",
+      "StartTime": "20:20:20",
+      "ServiceId": 1,
+      "Service": {
+        "Id": 1,
+        "Name": "Service 1"
+      },
+      "CustomerId": 1,
+      "Customer": {
+        "Id": 1,
+        "Name": "mohsen",
+        "Desc": "توضیحات",
+        "Phone": "09389114206",
+        "Date": "2025-06-30",
+        "CustomerCategory": 0,
+        "CustomerJob": 0,
+        "SocialMediaPlatforms":0
+      }
+    },
+    {
+      "Id": 2,
+      "Desc": "Desc 2",
+      "StartDate": "1404/3/21",
+      "StartTime": "21:20:20",
+      "ServiceId": 2,
+      "Service": {
+        "Id": 1,
+        "Name": "Service 2"
+      },
+      "CustomerId": 1,
+      "Customer": {
+        "Id": 1,
+        "Name": "mohsen",
+        "Desc": "توضیحات",
+        "Phone": "09389114206",
+        "Date": "2025-06-30",
+        "CustomerCategory": 0,
+        "CustomerJob": 0,
+        "SocialMediaPlatforms": 0
+      }
+    },
+    {
+      "Id": 3,
+      "Desc": "Desc 3",
+      "StartDate": "1404/3/20",
+      "StartTime": "21:20:20",
+      "ServiceId": 2,
+      "Service": {
+        "Id": 1,
+        "Name": "Service 2"
+      },
+      "CustomerId": 1,
+      "Customer": {
+        "Id": 1,
+        "Name": "mohsen",
+        "Desc": "توضیحات",
+        "Phone": "09389114206",
+        "Date": "2025-06-30",
+        "CustomerCategory":0,
+        "CustomerJob":0,
+        "SocialMediaPlatforms": 0
+      }
+    }
+  ],
+  "Nottification": [
+    {
+      "Id": 1,
+      "Title": "پیام سیستمی",
+      "Message": "ورود حدید به حساب کاربری",
+      "Date": "2025-06-30T00:00:00"
+    },
+    {
+      "Id": 2,
+      "Title": "پیام سیستمی",
+      "Message": "ورود2 حدید به حساب کاربری",
+      "Date": "2025-06-30T00:00:00"
+    },
+    {
+      "Id": 3,
+      "Title": "پیام سیستمی",
+      "Message": "ورود 3حدید به حساب کاربری",
+      "Date": "2025-06-30T00:00:00"
+    },
+    {
+      "Id": 4,
+      "Title": "پیام سیستمی",
+      "Message": "ورود4 حدید به حساب کاربری",
+      "Date": "2025-06-30T00:00:00"
+    }
+  ]
+}
