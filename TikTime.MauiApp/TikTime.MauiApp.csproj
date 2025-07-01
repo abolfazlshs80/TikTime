@@ -133,5 +133,14 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </None>
 	</ItemGroup>
-
+	<PropertyGroup>
+		<PublishTrimmed>true</PublishTrimmed>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(TargetFramework. Contains('-android' )) and '$(Configuration)' == 'Release' ">
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>13800117</AndroidSigningKeyPass>
+		<AndroidSigningStorePass>13800117</AndroidSigningStorePass>
+	</PropertyGroup>
 </Project>

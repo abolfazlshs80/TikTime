@@ -79,8 +79,9 @@ namespace TikTime.MauiApp.Service
 
         public async Task<Customer> Get(int Id)
         {
+       
             return FakeDataService.Instance.Customers
-                      .FirstOrDefault(u => u.Id.Equals(Id));
+                      .FirstOrDefault(u => u.Id.Equals(Id)); 
         }
 
         public async Task<IEnumerable<Customer>> GetByText(string value)
