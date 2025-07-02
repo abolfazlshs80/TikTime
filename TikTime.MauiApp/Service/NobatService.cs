@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TikTime.MauiApp.MVVM.Model.Customer;
 using TikTime.MauiApp.MVVM.Model.Nobat;
 
 namespace TikTime.MauiApp.Service
@@ -14,9 +10,11 @@ namespace TikTime.MauiApp.Service
             FakeDataService.Instance.Nobat.Add(nobat);
             return true;
         }
+       
 
         public async Task<IEnumerable<Nobat>> GetAll()
         {
+            
             return FakeDataService.Instance.Nobat;
         }
     }

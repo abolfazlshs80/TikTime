@@ -1,13 +1,6 @@
-﻿using DynamicData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using TikTime.MauiApp.MVVM.Model.Account;
 using TikTime.MauiApp.MVVM.Model.Customer;
-using TikTime.MauiApp.MVVM.Model.Enums;
 using TikTime.MauiApp.MVVM.Model.Nobat;
 using TikTime.MauiApp.MVVM.Model.Notifications;
 
@@ -28,23 +21,18 @@ namespace TikTime.MauiApp.Service
     {
     }
 
-
     public class FakeDataService : IFakeDataService
     {
         private FakeDataService()
         {
-
-
             LoadFromJson();
-
         }
 
         private async void LoadFromJson()
         {
-
             using var stream = await FileSystem.OpenAppPackageFileAsync("data.json");
             using var reader = new StreamReader(stream);
-           
+
             var data = JsonSerializer.Deserialize<FakeDataModel>(reader.ReadToEnd());
 
             GroupsCustomer = data?.GroupsCustomer ?? new();
@@ -55,6 +43,7 @@ namespace TikTime.MauiApp.Service
             Nobat = data?.Nobat ?? new();
             Nottification = data?.Nottification ?? new();
         }
+
         public static FakeDataService Instance { get; } = new FakeDataService();
 
         public List<User> Users;
@@ -69,4 +58,3 @@ namespace TikTime.MauiApp.Service
         public List<string> Ref;
     }
 }
-
