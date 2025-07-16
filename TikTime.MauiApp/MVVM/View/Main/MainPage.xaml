@@ -3,7 +3,7 @@
 <ContentPage  x:Class="TikTime.MauiApp.MVVM.View.Main.MainPage"
               xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              Title="TIK TIME"
+              Title="2x"
               
               BackgroundColor="#1A1A1A"
 >
@@ -36,7 +36,7 @@
 
                 <!-- Title -->
                 <StackLayout Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0" VerticalOptions="Center">
-                    <Label Text="TIK TIME" FontSize="16" FontAttributes="Bold" TextColor="White" />
+                    <Label Text="2x" FontSize="16" FontAttributes="Bold" TextColor="White" />
                     <Label Text="BUSINESS PRIME" FontSize="10" TextColor="#888888" />
                 </StackLayout>
 

@@ -30,7 +30,7 @@
                            HeightRequest="24" 
                            WidthRequest="24"
                            VerticalOptions="Center"/>
-                    <Label Text="TIK TIME" 
+                    <Label Text="2x" 
                            TextColor="{StaticResource HeaderTextColor}" 
                            FontSize="24" 
                            FontAttributes="Bold"
