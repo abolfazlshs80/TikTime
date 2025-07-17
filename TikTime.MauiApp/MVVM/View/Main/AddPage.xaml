@@ -36,10 +36,11 @@
                         ImageSource="person_icon.png"
                         ContentLayout="Left,10"
                 />
-                <Button Text="ثبت نوبت"
+                <Button Text="بستن "
                         HorizontalOptions="Fill"
                         ImageSource="calendar_icon.png"
                         ContentLayout="Left,10"
+                        Clicked="ClosePopup"
                         />
             </VerticalStackLayout>
         </Frame>

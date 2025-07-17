@@ -18,8 +18,8 @@ public partial class AddCustomerPage : ContentPage
         // Handle add note action
         // await DisplayAlert("افزودن نکی", "Add note functionality", "OK");
 
-
-        await MopupService.Instance.PushAsync(new AddCustomerDialog(_serviceProvider));
+        var popup = new AddCustomerDialog(_serviceProvider);
+        await MopupService.Instance.PushAsync(popup);
     }
 
     private async void OnExcelFileClicked(object sender, EventArgs e)

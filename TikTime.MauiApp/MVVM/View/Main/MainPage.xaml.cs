@@ -1,12 +1,16 @@
-﻿namespace TikTime.MauiApp.MVVM.View.Main
+﻿using Mopups.Services;
+using TikTime.MauiApp.MVVM.View.Customer;
+
+namespace TikTime.MauiApp.MVVM.View.Main
 {
     public partial class MainPage : ContentPage
     {
-     
 
-        public MainPage()
+        private readonly IServiceProvider _serviceProvider;
+        public MainPage( IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _serviceProvider = serviceProvider;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -37,7 +41,10 @@
 
         private async void OnAddClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//AddCustomerPage");
+            await Shell.Current.GoToAsync("AddCustomerPage");
+
+            //var popup = new AddCustomerDialog();
+            //await MopupService.Instance.PushAsync(popup);
         }
 
         private void OnSearchClicked(object sender, EventArgs e)

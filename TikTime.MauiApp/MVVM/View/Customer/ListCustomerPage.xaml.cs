@@ -58,7 +58,7 @@ public partial class ListCustomerPage : ContentPage
 
     private async void OnAddCustomerClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//AddCustomerPage");
+        await Shell.Current.GoToAsync("AddCustomerPage");
     }
 
     private void OnSettingsClicked(object sender, EventArgs e)
@@ -74,7 +74,7 @@ public partial class ListCustomerPage : ContentPage
 
     private async void CreateCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync("//AddCustomerPage");
+        await Shell.Current.GoToAsync("AddCustomerPage");
     }
 
     private void OrderCustomerTapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)

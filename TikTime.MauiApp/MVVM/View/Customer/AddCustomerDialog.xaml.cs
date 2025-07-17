@@ -35,6 +35,18 @@ public partial class AddCustomerDialog : PopupPage
         {
             await MopupService.Instance.PopAsync(); // بستن دیالوگ
             await DisplayAlert("موفقیت", "مشتری جدید با موفقیت ثبت شد", "باشه");
+            var whatsappUri = new Uri($"https://wa.me/{phoneEntry.Text.Substring(1)}?text=سلام");
+
+            if (await Launcher.CanOpenAsync(whatsappUri))
+            {
+                await Launcher.OpenAsync(whatsappUri);
+            }
+            else
+            {
+                // واتساپ نصب نیست یا باز کردن URI پشتیبانی نمی‌شود
+                await Application.Current.MainPage.DisplayAlert("خطا", "واتساپ نصب نیست یا نمی‌توان باز کرد.", "باشه");
+            }
+            await Shell.Current.GoToAsync("//MainPage");
         }
         await DisplayAlert("خطا", "   خطا در ثبت مشتری رخ داد", "باشه");
         //     await Shell.Current.GoToAsync("LoginPasswordPage"); // رفتن به صفحه بعد

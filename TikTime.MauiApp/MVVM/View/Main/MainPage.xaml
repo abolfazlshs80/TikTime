@@ -83,7 +83,7 @@
                     <Frame BackgroundColor="#FF1493" CornerRadius="15" Padding="8,4" HorizontalOptions="Start" Margin="0,10,0,0" HasShadow="False">
                         <StackLayout Orientation="Horizontal">
                             <Label Text="✓" FontSize="12" TextColor="White" />
-                            <Label Text="TIKTIME" FontSize="12" FontAttributes="Bold" TextColor="White" />
+                            <Label Text="2x" FontSize="12" FontAttributes="Bold" TextColor="White" />
                         </StackLayout>
                     </Frame>
                 </StackLayout>

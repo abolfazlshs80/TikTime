@@ -135,6 +135,7 @@
 	</ItemGroup>
 	<PropertyGroup>
 		<PublishTrimmed>true</PublishTrimmed>
+		<SelfContained>true</SelfContained>
 	</PropertyGroup>
 	<PropertyGroup Condition="$(TargetFramework. Contains('-android' )) and '$(Configuration)' == 'Release' ">
 		<AndroidKeyStore>True</AndroidKeyStore>
